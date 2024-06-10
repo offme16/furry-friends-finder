@@ -1,11 +1,8 @@
-// import { IdsSchema } from 'entities/Ids';
-// import { GoodsSchema } from 'entities/Goods';
-// import { FieldSchema } from 'entities/Field';
+import { PetsRegisteredSchema } from "enteties/PetsRegistered";
+
 
 export interface StateSchema {
-    // ids: IdsSchema;
-    // goods: GoodsSchema;
-    // filter: FieldSchema
+    pets: PetsRegisteredSchema,
 }
 
 export type StateSchemaKey = keyof StateSchema;
