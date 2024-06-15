@@ -1,6 +1,6 @@
 import React from 'react';
 import { Provider } from 'react-redux';
-import { StateSchema } from '../config/stateShema';
+import { StateSchema } from '../config/stateSchema';
 import { createRootStore } from '../config/store';
 
 export interface StoreProviderProps {
