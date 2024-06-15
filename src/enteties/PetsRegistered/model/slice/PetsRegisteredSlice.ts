@@ -20,7 +20,7 @@ export const PetsRegisteredSlice = createSlice({
             })
             .addCase(getPets.fulfilled, (state, action) => {
                 state.isLoading = false;
-                state.result = action.payload.result;
+                state.result = action.payload;
             })
             .addCase(getPets.rejected, (state, action) => {
                 state.isLoading = false;
