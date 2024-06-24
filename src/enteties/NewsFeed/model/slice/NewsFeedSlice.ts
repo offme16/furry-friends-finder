@@ -6,12 +6,18 @@ const initialState:NewsFeedSchema = {
     result: [],
     error: '',
     isLoading: false,
+    page: 0,
+    limit: 5,
 };
 
 export const NewsFeedSlice = createSlice({
     name: 'Pets',
     initialState,
-    reducers: {},
+    reducers: {
+        setPage: (state, action) => {
+            state.page = action.payload;
+        }
+    },
     extraReducers: (builder) => {
         builder
             .addCase(getNews.pending, (state) => {

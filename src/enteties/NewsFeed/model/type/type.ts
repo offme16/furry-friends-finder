@@ -2,10 +2,12 @@ export interface NewsFeedSchema {
     result?: News[];
     isLoading: boolean;
     error?: string;
+    page: number;
+    limit: number;
 }
 
 export interface News {
     id: number;
-    title: string;
-
+    fact: string;
+    utl: string
 }

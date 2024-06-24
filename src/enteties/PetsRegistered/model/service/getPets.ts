@@ -2,8 +2,8 @@ import { createAsyncThunk } from '@reduxjs/toolkit';
 import { $api } from 'shared/api/api';
 import { AxiosError } from 'axios';
 
-interface IdsProps {
-    offset?: number
+interface OffsetProps {
+    page?: number
     limit?: number
 }
 interface KnownError {
@@ -14,9 +14,9 @@ interface KnownError {
 
 export const getPets = createAsyncThunk(
     'get_pets',
-    async (data: IdsProps, thunkAPI) => {
+    async (data: OffsetProps, thunkAPI) => {
         try {
-            const response = await $api.post('', data);
+            const response = await $api.post(`https://6667efe7f53957909ff5d53d.mockapi.io/pets`);
             if (!response.data) {
                 throw new Error();
             }
