@@ -1,7 +1,6 @@
 import React from 'react';
 import Button from 'shared/UI/Button/Button';
 import clsx from 'clsx';
-import Text, { TextTheme } from 'shared/UI/Text/Text';
 import cls from './PageError.module.scss';
 
 export interface PageErrorProps {
@@ -14,9 +13,9 @@ const PageError = ({ className }: PageErrorProps) => {
 
     return (
         <div className={clsx(cls.PageError, {}, [className])}>
-            <Text text="Произошла ошибка" theme={TextTheme.ERROR} />
+            <h1>Произошла ошибка!</h1>
             <Button onClick={reloadPage}>
-                <Text text="Обновить страницу" theme={TextTheme.PRIMARY} />
+            Обновить страницу
             </Button>
         </div>
     );

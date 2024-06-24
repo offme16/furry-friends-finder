@@ -15,10 +15,6 @@ const NewsPage = () => {
 
     const news = useSelector(getNewsData); //получение данных из стора
 
-
-
-
-
     return (
         <div className={cls.container}>
 

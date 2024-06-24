@@ -1,14 +1,18 @@
 .Button {
     cursor: pointer;
-    color: var(--primary-button-color);
+    border-radius: 22px;
+    padding: 10px 36px;
+    background-color: #F2968F;
+    border: none;
+    color: #fff;
+    font-size: var(--font-size-l);
+    transition: background-color 0.2s;
+
+    &:hover{
+      background-color: #ffb1ab;
+    }
   }
   
-  .clear {
-    padding: 0;
-    border: none;
-    background: none;
-    outline: none;
-  }
   
   .disabled {
     opacity: 0.5;
