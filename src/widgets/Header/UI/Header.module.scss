@@ -1,0 +1,33 @@
+.header{
+    position: fixed;
+    left: 0;
+    right: 0;
+    top: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.navigate{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 30px;
+    font-size: 26px;
+    line-height: 74.5px;
+    
+    a {
+        transition: all 0.3s;
+        color: #283B40;
+        font-weight: 500;
+    }
+    a:hover{
+        scale: 1.2;
+    }
+}
+
+.dot{
+    width: 4px;
+    height: 4px;
+    border-radius: 50%;
+    background: #283B40;
+}

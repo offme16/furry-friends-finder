@@ -6,7 +6,7 @@ const MainPage = () => {
     
     return (
         <div className={cls.MainPage}>
-     
+            
         </div>
     )
 }
