@@ -6,3 +6,56 @@
     height: 100%;
     flex-wrap: wrap;
   }
+  .head {
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    height: 900px;
+    overflow: hidden;
+    border-bottom: 8px solid #F2968F;
+    background: #f0eaea;
+
+    Button {
+      padding: 18px 35px;
+    }
+  }
+  .title {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 20px;
+    align-items: baseline;
+
+    h1 {
+      font-size: 36px;
+      color: #283C40;
+      line-height: 50px;
+    }
+  }
+  .bg_img {
+    z-index: 100;
+    position: relative;
+    top: -1050px;
+    left: 228px;
+
+  }
+
+  .char {
+    width: 560px;
+    height: 560px;
+    background-color: #DEC1E9;
+    box-shadow: 0px 0px 4px 0px #00000040;
+    border-radius: 50%;
+    position: absolute;
+    top: -275px;
+    left: 520px;
+  }
+  .char_bg {
+    width: 944px;
+    height: 944px;
+    background-color: #F2968F;
+    border-radius: 50%;
+    position: relative;
+    right: -313px;
+    top: 69px;
+  }
