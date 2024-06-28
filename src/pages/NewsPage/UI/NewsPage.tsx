@@ -47,14 +47,16 @@ const NewsPage = () => {
 
     return (
         <div className={cls.NewsPage}>
+            <div className={cls.char_bg}></div>
+            <div className={cls.char}></div>
             {randomNews && randomNews.length > 0 ? (
                 <div className = {cls.NewsGrid}>
-                {randomNews.map((item) => (
-                    <div key = {item.id} className = {cls.NewsItem}>
-                        <img src = {item.url} alt = {`news-${item.id}`} className = {cls.NewsImage} />
-                        <p className = {cls.NewsFact}> {item.fact} </p>
-                    </div>
-                ))}    
+                    {randomNews.map((item) => (
+                        <div key = {item.id} className = {cls.NewsItem}>
+                            <img src = {item.url} alt = {`news-${item.id}`} className = {cls.NewsImage} />
+                            <p className = {cls.NewsFact}> {item.fact} </p>
+                        </div>
+                    ))}    
                 </div>
             ) : (
                 <p>No news available</p>
