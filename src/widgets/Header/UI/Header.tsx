@@ -7,6 +7,8 @@ const Header = () => {
             <nav className={cls.navigate}>
                 <NavLink to={'/'}>Главная</NavLink>
                 <div className={cls.dot}></div>
+                <NavLink to={'/pets'}>Наши питомцы</NavLink>
+                <div className={cls.dot}></div>
                 <NavLink to={'/news'}>Новости</NavLink>
                 <div className={cls.dot}></div>
                 <NavLink to={'/search'}>Найти питомца</NavLink>
