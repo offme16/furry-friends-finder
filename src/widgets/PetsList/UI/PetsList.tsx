@@ -11,30 +11,14 @@ const PetsList = () => {
     const dispatch = useAppDispatch();
 
     const [currentPage, setCurrentPage] = useState(1);
-    const [randomPets, setRandomPets] = useState<Pets[]>([]);
     const pets = useSelector(getListPets); //получение данных из стора
     const maxcount: number = 9;
 
     const offset = useSelector(offsetPetsPage);
-    console.log(pets?.length)
     useEffect(() => {
         dispatch(getPets({page: currentPage, limit: 9}));
     }, [dispatch, currentPage])
 
-    useEffect(() => {
-        if (pets) {
-            setRandomPets(shuffleArray(pets));
-        }
-    }, [pets]);
-
-    const shuffleArray = (array: Pets[]) : Pets[] => {
-        let shuffledArray = array.slice();
-        for (let i = shuffledArray.length - 1; i > 0; i--) {
-            const j = Math.floor(Math.random() * (i + 1));
-            [shuffledArray[i], shuffledArray[j]] = [shuffledArray[j], shuffledArray[i]];
-        }
-        return shuffledArray;
-    };
 
     const handleNextPage = () => {
         if (pets && pets.length >= maxcount) {
@@ -50,28 +34,28 @@ const PetsList = () => {
     };
 
     return (
-        <div className={cls.PetsList}>
+        <div className={cls.PetsPage}>
             <div className={cls.MainPetsList}>
                 <div className={cls.char_bg_blue}></div>
-                <div className={cls.main_text}>Наши питомцы</div>
+                <h1 className={cls.main_text}>Наши питомцы</h1>
                 <img className={cls.MainPetImage} src={dog_petsList} alt="MainDog" />
                 <div className={cls.char_bg_purple}>Мы покажем Вам наших питомцев</div>
             </div>
             <div className={cls.char_bg_orange}></div>
             <div className={cls.char_bg_cyan}></div>
             <div className={cls.char_bg_green}></div>
-            {randomPets && randomPets.length > 0 ? (
+            {pets && pets.length > 0 ? (
                 <div className = {cls.PetsGrid}>
-                    {randomPets.map((item) => (
+                    {pets.map((item) => (
                         <NavLink to={'../pet/'+item.id} className={cls.PetsNavlink}>
                             <div key = {item.id} className = {cls.PetsItem}>
                                     <img src = {item.picturePet} alt = {`pets-${item.id}`} className = {cls.PetsImage} />
                                     <div className={cls.PetsDiscription}>
                                         <div>
-                                            <p className = {cls.PetsFact}> {item.petName}({item.genderPet}) </p>
-                                            <p className = {cls.PetsFact}> {item.breedPet} </p>
+                                            <p className = {cls.PetsFact}> <b>{item.petName}</b> (<u>{item.genderPet}</u>) </p>
+                                            <p className = {cls.PetsFact}> <i>{item.breedPet}</i> </p>
                                         </div>
-                                        <p className = {cls.PetsFact}> {item.agePet} </p>
+                                        <p className = {cls.PetsFact}> <i>{item.agePet}</i> </p>
                                     </div>
                             </div>
                         </NavLink>
