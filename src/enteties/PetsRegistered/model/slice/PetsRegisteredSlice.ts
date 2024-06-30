@@ -6,7 +6,7 @@ const initialState: PetsRegisteredSchema = {
     result: [],
     error: '',
     isLoading: false,
-    page: 0,
+    page: 1,
     limit: 6,
 };
 

@@ -1,0 +1,35 @@
+.container {
+    margin-top: 75px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+}
+
+.header {
+    width: 80%;
+    margin-bottom: 20px;
+    color: #000000;
+}
+
+.content {
+    display: grid;
+    grid-template-columns: 1fr 3fr;
+    gap: 20px;
+    width: 80%;
+
+    .filter {
+        border-radius: 16px;
+        background-color: #F2F2F2;
+        padding: 20px 10px;
+    }
+
+
+
+
+    .petsList {
+        border-radius: 16px;
+        background-color: #F2F2F2;
+        padding: 20px 10px;
+    }
+}

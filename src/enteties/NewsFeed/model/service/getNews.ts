@@ -13,7 +13,7 @@ interface KnownError {
 }
 
 export const getNews = createAsyncThunk(
-    'get_pets',
+    'get_news',
     async (offset: offsetProps, thunkAPI) => {
         try {
             const response = await $api.get(`https://666dd1c27a3738f7cacd64da.mockapi.io/news`);
