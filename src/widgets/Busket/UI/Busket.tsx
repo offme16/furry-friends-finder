@@ -3,7 +3,7 @@ import { useState } from 'react';
 import { BusketItem } from '../BusketItem';
 import { useSelector } from 'react-redux';
 import {  getBusketData } from 'enteties/DonationFeed';
-import { Donations } from 'enteties/DonationFeed/model/type/type';
+import { Donations } from 'enteties/DonationFeed';
 import BusketEmpty from 'shared/assests/Busket/BusketEmpty.png'
 import busketIcon from 'shared/assests/Busket/busket.svg'
 import Button from 'shared/UI/Button/Button';

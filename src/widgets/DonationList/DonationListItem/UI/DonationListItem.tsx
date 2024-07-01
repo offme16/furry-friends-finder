@@ -1,7 +1,7 @@
-import { DonationsFeedSliceActions } from '../../../../enteties/DonationFeed';
+import { DonationsFeedSliceActions } from 'enteties/DonationFeed';
 import cls from './DonationListItem.module.scss';
 import { useAppDispatch } from "shared/lib/hooks/useAppDispatch";
-import { Donations } from 'enteties/DonationFeed/model/type/type';
+import { Donations } from 'enteties/DonationFeed';
 import Button from 'shared/UI/Button/Button';
 
 interface DonationListItemProps {

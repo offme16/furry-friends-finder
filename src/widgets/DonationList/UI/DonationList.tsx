@@ -3,15 +3,15 @@ import { useSelector } from "react-redux";
 import cls from './DonationList.module.scss';
 import { useAppDispatch } from "shared/lib/hooks/useAppDispatch";
 import { useEffect } from "react";
-import donationDog from "../../../shared/assests/donationList/donationDog.svg";
+import donationDog from "shared/assests/donationList/donationDog.svg";
 import { DonationListItem } from '../DonationListItem';
-import { Donations } from 'enteties/DonationFeed/model/type/type';
+import { Donations } from 'enteties/DonationFeed';
 import { off } from 'process';
 import { PageError } from 'widgets/PageError';
 import Loader from 'shared/UI/Loader/Loader';
 import Button from 'shared/UI/Button/Button';
-import ToPrevArrow from "../../../shared/assests/donationList/ToPrevArrow.svg";
-import toNextArrow from "../../../shared/assests/donationList/toNextArrow.svg";
+import ToPrevArrow from "shared/assests/donationList/ToPrevArrow.svg";
+import toNextArrow from "shared/assests/donationList/toNextArrow.svg";
 
 
 
