@@ -1,7 +1,8 @@
-import {DonationsFeedSliceActions} from '../../../../enteties/DonationFeed';
+import { DonationsFeedSliceActions } from '../../../../enteties/DonationFeed';
 import cls from './DonationListItem.module.scss';
 import { useAppDispatch } from "shared/lib/hooks/useAppDispatch";
 import { Donations } from 'enteties/DonationFeed/model/type/type';
+import Button from 'shared/UI/Button/Button';
 
 interface DonationListItemProps {
     donation: Donations;
@@ -17,16 +18,26 @@ const DonationListItem: React.FC<DonationListItemProps> = ({ donation }) => {
         dispatch(DonationsFeedSliceActions.decreaseDonationCount(donation));
     };
     return (
-    <div className={cls.DonationListItem}>
-        <img className={cls.donationImg} src={donation.img} alt={donation.name} />
-        <div className={cls.donationDetails}>
-            <h3 className={cls.donationName}>{donation.name}</h3>
-            <p className={cls.donationCost}>Цена: {donation.cost} руб.</p>
-            <button onClick={handleDecreaseCount} className={cls.donate_btn}>-</button>
-            <span className={cls.donationCount}>Количество: {donation.count}</span>
-            <button onClick={handleIncreaseCount} className={cls.donate_btn}>+</button>
-        </div>
-        <p className={cls.total}>Итого: {donation.count * donation.cost} руб</p>
-    </div>)
+        <div className={cls.DonationListItem}>
+            <img className={cls.donationImg} src={donation.img} alt={donation.name} />
+            <div className={cls.donationDetails}>
+                <h3 className={cls.donationName}>
+                    {donation.name}
+                </h3>
+                <p className={cls.donationCost}>
+                    Цена: {donation.cost} &#8381;.
+                </p>
+                <Button disabled={donation.count === 0} onClick={handleDecreaseCount} className={cls.donate_btn}>
+                    -
+                </Button>
+                <span className={cls.donationCount}>
+                    Количество: {donation.count}
+                </span>
+                <Button onClick={handleIncreaseCount} className={cls.donate_btn}>
+                    +
+                </Button>
+            </div>
+            {/* <p className={cls.total}>Итого: {donation.count * donation.cost} &#8381;</p> */}
+        </div>)
 }
 export default DonationListItem;

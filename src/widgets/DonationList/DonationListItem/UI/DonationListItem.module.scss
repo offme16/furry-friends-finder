@@ -12,9 +12,9 @@
     transform: scale(1.05);
 }
 .donationImg {
-    width: 100%;
-    height: 200px;
-    object-fit: cover;
+    width: 250px;
+    height: 250px;
+    object-fit: round($number: 0);
 }
 .donationDetails {
     padding: 16px;
@@ -41,15 +41,13 @@
 .donate_btn{
     height: 30px;
     width: 30px;
+    display: inline-flex;
+    align-items: flex-end;
+    justify-content: center;
     margin: 5px;
-    cursor: pointer;
-    background-color: #63aefe;
+    padding: 5px;
     border-radius: 5px;
-    border: none;
     box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.48);
-}
-.donate_btn:hover{
-    background-color: #007bff;
 }
 .donate_btn:active{
     box-shadow: none;

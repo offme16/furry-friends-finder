@@ -19,10 +19,12 @@ export const getDonations = createAsyncThunk(
         const {page, limit} = offset;
         try {
             const response = await $api.get(`https://667befab3c30891b865aa7cf.mockapi.io/bars/donations?page=${page}&limit=${limit}`);
+            // const totalCount = await $api.get(`https://667befab3c30891b865aa7cf.mockapi.io/bars/donations`)
             if (!response.data) {
                 throw new Error();
             }
-            return response.data;
+            // return {...response.data , totalCount:totalCount.data.length};
+            return response.data
         } catch (e) {
             const error: AxiosError<KnownError> = e as any;
             return thunkAPI.rejectWithValue('Произошла ошибка');

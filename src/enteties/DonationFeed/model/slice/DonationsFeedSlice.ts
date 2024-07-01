@@ -44,19 +44,26 @@ export const DonationsFeedSlice = createSlice({
                 if(donateItem.id === action.payload.id && donateItem.count > 0){
                     return {...donateItem, count: donateItem.count - 1};
                 }
-                else{
-                    return donateItem
-                }                   
+                return donateItem                  
             })
             state.busket = state.busket?.map((busketItem) => {
                 if(busketItem.id === action.payload.id && busketItem.count > 0){
                     return {...busketItem, count: busketItem.count - 1};
                 }
-                else{
-                    return busketItem
-                }                   
+                return busketItem
+                                   
             })
             state.busket = state.busket?.filter(busketItem => busketItem.count > 0)
+        },
+        removeItem: (state, action) => {
+            state.result = state.result?.map(donationItem => {
+                if(donationItem.id === action.payload.id){
+                    console.log({...donationItem, count: 0})
+                    return {...donationItem, count: 0};
+                }
+                return donationItem     
+            })
+            state.busket = state.busket?.filter(busketItem => busketItem.id !== action.payload.id)
         }
     },
     extraReducers: (builder) => {
