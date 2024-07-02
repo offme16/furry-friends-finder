@@ -6,6 +6,7 @@ import phone from '../../../shared/assests/phone.svg';
 import email from '../../../shared/assests/email.svg';
 import github from '../../../shared/assests/github.svg';
 import { NavLink } from 'react-router-dom';
+import { DonationList } from 'widgets/DonationList';
 const MainPage = () => {
 
     return (
@@ -13,7 +14,7 @@ const MainPage = () => {
             <section className={cls.head}>
                 <div className={cls.char}></div>
                 <div className={cls.title}>
-                    <h1>Счастье ближе,<br /> чем вы думаете</h1>
+                    <h1>частье ближе,<br /> чем вы думаете</h1>
                     <NavLink to={'./search'}><Button>Найти питомца!</Button></NavLink>
                 </div>
                 <div className={cls.bg}>
@@ -61,7 +62,9 @@ const MainPage = () => {
                     </div>
                 </div>
             </section>
+            <DonationList></DonationList>
         </div>
+
     )
 }
 

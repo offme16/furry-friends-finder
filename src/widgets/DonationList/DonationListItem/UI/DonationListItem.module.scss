@@ -1,0 +1,58 @@
+.DonationListItem{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    box-sizing: border-box;
+    height: 401px;
+    background: #FCFCFC;
+    box-shadow: 0px 0px 16px rgba(0, 0, 0, 0.48);
+    border-radius: 16px;
+}
+.donationCard:hover {
+    transform: scale(1.05);
+}
+.donationImg {
+    width: 250px;
+    height: 250px;
+    object-fit: round($number: 0);
+}
+.donationDetails {
+    padding: 16px;
+    text-align: center;
+}
+.donationName {
+    font-size: 1.25rem;
+    margin-bottom: 8px;
+}
+.donationCost, .donationCount {
+    margin: 4px 0;
+    color: #555;
+}
+.donationLink {
+    display: inline-block;
+    margin-top: 12px;
+    padding: 8px 16px;
+    background-color: #007bff;
+    color: white;
+    text-decoration: none;
+    border-radius: 4px;
+    transition: background-color 0.3s;
+}
+.donate_btn{
+    height: 30px;
+    width: 30px;
+    display: inline-flex;
+    align-items: flex-end;
+    justify-content: center;
+    margin: 5px;
+    padding: 5px;
+    border-radius: 5px;
+    box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.48);
+}
+.donate_btn:active{
+    box-shadow: none;
+}
+.total{
+    font-size: 18px;
+    margin: 5px;
+}
