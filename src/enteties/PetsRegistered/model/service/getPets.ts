@@ -3,8 +3,15 @@ import { $api } from 'shared/api/api';
 import { AxiosError } from 'axios';
 
 interface OffsetProps {
-    page?: number
-    limit?: number
+    page?: number;
+    limit?: number;
+}
+interface FilterProps {
+    city?: string;
+    genderPet?: string;
+    breedPet?: string;
+    colorPet?: string;
+    agePet?: string;
 }
 interface KnownError {
     message: string;
