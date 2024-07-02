@@ -6,8 +6,8 @@ const initialState: PetsRegisteredSchema = {
     result: [],
     error: '',
     isLoading: false,
-    page: 0,
-    limit: 6,
+    page: 1,
+    limit: 9,
 };
 
 export const PetsRegisteredSlice = createSlice({

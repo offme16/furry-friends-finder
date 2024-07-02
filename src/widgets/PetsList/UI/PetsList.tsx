@@ -9,14 +9,12 @@ import dog_petsList from "shared/assests/dog_petsList.png"
 
 const PetsList = () => {
     const dispatch = useAppDispatch();
-
     const [currentPage, setCurrentPage] = useState(1);
-    const pets = useSelector(getListPets); //получение данных из стора
+    const pets = useSelector(getListPets);
     const maxcount: number = 9;
-
     const offset = useSelector(offsetPetsPage);
     useEffect(() => {
-        dispatch(getPets({page: currentPage, limit: 9}));
+        dispatch(getPets(offset));
     }, [dispatch, currentPage])
 
 
@@ -34,16 +32,7 @@ const PetsList = () => {
     };
 
     return (
-        <div className={cls.PetsPage}>
-            <div className={cls.MainPetsList}>
-                <div className={cls.char_bg_blue}></div>
-                <h1 className={cls.main_text}>Наши питомцы</h1>
-                <img className={cls.MainPetImage} src={dog_petsList} alt="MainDog" />
-                <div className={cls.char_bg_purple}>Мы покажем Вам наших питомцев</div>
-            </div>
-            <div className={cls.char_bg_orange}></div>
-            <div className={cls.char_bg_cyan}></div>
-            <div className={cls.char_bg_green}></div>
+        <div className={cls.PetsList}>
             {pets && pets.length > 0 ? (
                 <div className = {cls.PetsGrid}>
                     {pets.map((item) => (
@@ -64,7 +53,6 @@ const PetsList = () => {
             ) : (
                 <p>No pets available</p>
             )}
-        
             <div className={cls.Pagination}>
                 <button onClick={handlePreviousPage} disabled={currentPage === 1} className={cls.PageButton}>
                     Назад
