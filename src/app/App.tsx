@@ -2,7 +2,7 @@ import React, { Suspense } from 'react';
 import { AppRouter } from './providers/router';
 import { Header } from 'widgets/Header';
 import { Busket } from 'widgets/Busket';
-
+import { Footer } from 'widgets/Footer';
 function App() {
     return (
         <div className="app">
