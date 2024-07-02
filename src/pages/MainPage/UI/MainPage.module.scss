@@ -1,60 +1,105 @@
 .MainPage {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 100%;
-    height: 100%;
-    flex-wrap: wrap;
-  }
-  .head {
-    display: flex;
-    width: 100%;
-    justify-content: center;
-    height: 900px;
-    overflow: hidden;
-    border-bottom: 8px solid #F2968F;
-    
-    Button {
-      padding: 18px 35px;
-    }
-  }
-  .title {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    gap: 20px;
-    align-items: baseline;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  flex-wrap: wrap;
+}
 
-    h1 {
-      font-size: 36px;
-      color: #283C40;
-      line-height: 50px;
-    }
-  }
-  .bg_img {
-    z-index: 100;
-    position: relative;
-    top: -1050px;
-    left: 228px;
+.head,
+.contacts {
+  display: flex;
+  width: 100%;
+  justify-content: center;
+  height: 900px;
+  overflow: hidden;
+  border-bottom: 8px solid #F2968F;
+  background: #f0eaea;
 
+  Button {
+    padding: 18px 35px;
   }
+}
 
-  .char {
-    width: 560px;
-    height: 560px;
-    background-color: #DEC1E9;
-    box-shadow: 0px 0px 4px 0px #00000040;
-    border-radius: 50%;
-    position: absolute;
-    top: -275px;
-    left: 520px;
+.title {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 20px;
+  align-items: baseline;
+
+  h1 {
+    font-size: 36px;
+    color: #283C40;
+    line-height: 50px;
   }
-  .char_bg {
-    width: 944px;
-    height: 944px;
-    background-color: #F2968F;
-    border-radius: 50%;
-    position: relative;
-    right: -313px;
-    top: 69px;
+}
+
+.bg_img {
+  z-index: 100;
+  position: relative;
+  top: -1050px;
+  left: 228px;
+
+}
+
+.char {
+  width: 560px;
+  height: 560px;
+  background-color: #DEC1E9;
+  box-shadow: 0px 0px 4px 0px #00000040;
+  border-radius: 50%;
+  position: absolute;
+  top: -275px;
+  left: 520px;
+}
+
+.char_bg {
+  width: 944px;
+  height: 944px;
+  background-color: #F2968F;
+  border-radius: 50%;
+  position: relative;
+  right: -313px;
+  top: 69px;
+}
+
+.Input {
+  border: 4px solid #F2968F;
+  font-size: var(--font-size-l);
+  border-radius: 10px;
+  background-color: #F2F2F2;
+  padding: 10px 10px;
+
+  &:focus {
+    border-color: #F2968F;
+    outline: none;
   }
+}
+
+.inputBox h3 {
+  font-size: 1rem;
+  padding: 1px 10px;
+  color: #666;
+}
+
+.contactBlock {
+  @extend .title;
+  margin-left: 50px;
+}
+
+.contactItem,
+a {
+  display: flex;
+  flex-direction: row;
+}
+
+.contactText {
+  margin-left: 10px;
+}
+
+.icon {
+  width: 30px;
+  height: 30px;
+}

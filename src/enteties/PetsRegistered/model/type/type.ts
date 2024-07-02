@@ -7,6 +7,15 @@ export interface PetsRegisteredSchema {
 }
 
 export interface Pets {
-    id: number;
-    name: string;
+    id: string;
+    owner_id: string;
+    city: string;
+    petName: string;
+    genderPet: string;
+    agePet: string;
+    breedPet: string;
+    colorPet: string;
+    features: Array<string>;
+    description: string;
+    picturePet: string;
 }

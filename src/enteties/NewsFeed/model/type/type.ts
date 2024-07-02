@@ -9,5 +9,5 @@ export interface NewsFeedSchema {
 export interface News {
     id: number;
     fact: string;
-    utl: string
+    url: string
 }
