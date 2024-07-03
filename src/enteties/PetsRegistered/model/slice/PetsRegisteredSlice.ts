@@ -13,7 +13,12 @@ const initialState: PetsRegisteredSchema = {
 export const PetsRegisteredSlice = createSlice({
     name: 'Pets',
     initialState,
-    reducers: {},
+    reducers: {
+        setPage: (state, action) => {
+            state.page = action.payload;
+            console.log("a"+ action.payload);
+        }
+    },
     extraReducers: (builder) => {
         builder
             .addCase(getPets.pending, (state) => {

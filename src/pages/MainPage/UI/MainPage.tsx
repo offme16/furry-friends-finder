@@ -9,7 +9,19 @@ import { NavLink } from 'react-router-dom';
 import { DonationList } from 'widgets/DonationList';
 import dog_petsList from "shared/assests/dog_petsList.png"
 import { PetsList } from 'widgets/PetsList';
+import { useSelector } from 'react-redux';
+import { getPets, PetsData } from 'enteties/PetsRegistered';
+import { useEffect } from 'react';
+import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch';
+
 const MainPage = () => {
+    const dispatch = useAppDispatch();
+    const PetsInfo = useSelector(PetsData);
+    const {result, page, limit, isLoading} = PetsInfo;
+
+    useEffect(() => {
+        dispatch(getPets({page, limit}));
+    }, [dispatch, page]);
 
     return (
         <div className={cls.MainPage}>
@@ -38,7 +50,7 @@ const MainPage = () => {
             <div className={cls.char_bg_green}></div>
             </div>
             
-            <PetsList />
+            <PetsList result={result} page={page} limit={limit} isLoading={isLoading}/>
            </section>
 
             <DonationList />
