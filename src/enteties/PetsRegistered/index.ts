@@ -1,7 +1,6 @@
 import { PetsRegisteredSchema } from "./model/type/type";
 import { getPets } from "./model/service/getPets";
 import { PetsRegisteredReducer } from "./model/slice/PetsRegisteredSlice";
-import { getListPets } from "./model/selectors/getListPets";
-import { offsetPetsPage } from "./model/selectors/offsetPetsPage";
-
-export { type PetsRegisteredSchema, getPets, PetsRegisteredReducer, getListPets, offsetPetsPage }
+import { PetsData } from "./model/selectors/PetsData";
+import { PetsRegisteredActions } from "./model/slice/PetsRegisteredSlice";
+export { type PetsRegisteredSchema, getPets, PetsRegisteredReducer, PetsData, PetsRegisteredActions}
