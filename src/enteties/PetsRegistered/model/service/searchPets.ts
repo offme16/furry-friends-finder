@@ -1,11 +1,8 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
 import { $api } from 'shared/api/api';
 import { AxiosError } from 'axios';
+import { PetsRegisteredActions } from '../slice/PetsRegisteredSlice';
 
-interface OffsetProps {
-    page?: number;
-    limit?: number;
-}
 interface FilterProps {
     city?: string;
     genderPet?: string;
@@ -19,23 +16,26 @@ interface KnownError {
     code: number | undefined;
 }
 
-export const getPets = createAsyncThunk(
-    'get_pets',
-    async ({ page, limit }: OffsetProps, thunkAPI) => {
+export const searchPets = createAsyncThunk(
+    'search_pets',
+    async (filters: FilterProps, thunkAPI) => {
+        const { city, genderPet, breedPet, colorPet, agePet } = filters;
         try {
             const response = await $api.get(`https://6667efe7f53957909ff5d53d.mockapi.io/pets`,
                 {
                     params: {
-                        page,
-                        limit
+                        city,
+                        genderPet,
+                        breedPet,
+                        colorPet,
+                        agePet
                     }
                 }
             );
             if (!response.data) {
                 throw new Error();
             }
-            
-            return response.data;
+            return  thunkAPI.dispatch(PetsRegisteredActions.setData(response.data));
         } catch (e) {
             const error: AxiosError<KnownError> = e as any;
             return thunkAPI.rejectWithValue(error);

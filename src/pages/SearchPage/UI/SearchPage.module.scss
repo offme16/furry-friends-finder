@@ -4,9 +4,11 @@
     flex-direction: column;
     align-items: center;
     gap: 20px;
+    min-height: 80vh;
+    margin-bottom: 50px;
 }
 
-.header {
+.title {
     width: 80%;
     margin-bottom: 20px;
     color: #000000;
@@ -20,16 +22,16 @@
 
     .filter {
         border-radius: 16px;
-        background-color: #F2F2F2;
+        background-color: #ffffff;
         padding: 20px 10px;
+        height: fit-content;
     }
-
-
-
 
     .petsList {
         border-radius: 16px;
-        background-color: #F2F2F2;
         padding: 20px 10px;
+        display: flex;
+        justify-content: center;
+
     }
 }

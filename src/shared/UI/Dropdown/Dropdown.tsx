@@ -4,13 +4,18 @@ import arrow_right from '../../assests/right_arrow_icon.svg'
 interface DropdownProps {
     title: string;
     items: Array<{ label: string; value: string }>;
+    onChange: (value: string) => void;
 }
 
-const Dropdown: React.FC<DropdownProps> = ({ title, items }) => {
+const Dropdown: React.FC<DropdownProps> = ({ title, items, onChange }) => {
     const [isOpen, setIsOpen] = useState(false);
 
     const toggleDropdown = () => {
         setIsOpen(!isOpen);
+    };
+
+    const handleCheckboxChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+        onChange(event.target.value);
     };
 
     return (
@@ -23,7 +28,7 @@ const Dropdown: React.FC<DropdownProps> = ({ title, items }) => {
                 <div className={cls.dropdownList}>
                     {items.map((item) => (
                         <label key={item.value}>
-                            <input type="checkbox" name={item.value} value={item.value} />
+                            <input type="checkbox" name={item.value} value={item.value} onChange={handleCheckboxChange}/>
                             {item.label}
                         </label>
                     ))}

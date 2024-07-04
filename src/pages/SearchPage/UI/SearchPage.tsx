@@ -1,43 +1,52 @@
 import Input from "shared/UI/Input/Input";
 import cls from "./SearchPage.module.scss";
 import Dropdown from "shared/UI/Dropdown/Dropdown";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { useAppDispatch } from "shared/lib/hooks/useAppDispatch";
-import { getListPets, getPets, offsetPetsPage } from "enteties/PetsRegistered";
+import { PetsData, getPets } from "enteties/PetsRegistered";
 import { useSelector } from "react-redux";
+import { PetsList } from "widgets/PetsList";
+import { searchPets } from "enteties/PetsRegistered/model/service/searchPets";
 
 const SearchPage = () => {
     const dispatch = useAppDispatch();
-    const offset = useSelector(offsetPetsPage);
-    const colorPet = useSelector(getListPets);
+    const PetsInfo = useSelector(PetsData);
+    const {result, page, limit, isLoading} = PetsInfo;
+
+    const [filters, setFilters] = useState({
+        city: '',
+        genderPet: '',
+        breedPet: '',
+        colorPet: '',
+        agePet: ''
+    });
 
     useEffect(() => {
-        dispatch(getPets(offset));
-    },[dispatch])
+        dispatch(getPets({page, limit}));
+    },[dispatch, page])
 
-    const animalItems = [
-        { label: 'Кот', value: 'cat' },
-        { label: 'Собака', value: 'dog' }
-    ];
+    const handleFilterChange = (filterName: string, value: string) => {
+        const updatedFilters = { ...filters, [filterName]: value };
+        setFilters(updatedFilters);
+        dispatch(searchPets(updatedFilters));
+    };
 
-    const colorItems = [
-        { label: 'Белый', value: 'white' },
-        { label: 'Черный', value: 'black' },
-        { label: 'Рыжий', value: 'ginger' }
-    ];
-
+    const genderItems = result ? Array.from(new Set(result.map(pet => pet.genderPet))).map(gender => ({ label: gender, value: gender })) : [];
+    const colorItems = result ? Array.from(new Set(result.map(pet => pet.colorPet))).map(color => ({ label: color, value: color })) : [];
+    const breedItems = result ? Array.from(new Set(result.map(pet => pet.breedPet))).map(breed => ({ label: breed, value: breed })) : [];
 
     return (
         <div className={cls.container}>
-            <h2 className={cls.header}>Домашние питомцы в добрые руки!</h2>
+            <h2 className={cls.title}>Домашние питомцы в добрые руки!</h2>
             <div className={cls.content}>
                 <div className={cls.filter}>
                     <Input placeholder="Любой город"></Input>
-                    <Dropdown title="Кого ищете?" items={animalItems} />
-                    <Dropdown title="Окрас" items={colorItems} />
+                    <Dropdown title="Кого ищете?" items={genderItems} onChange = {(value) => handleFilterChange('genderPet', value)}/>
+                    <Dropdown title="Окрас" items={colorItems} onChange = {(value) => handleFilterChange('colorPet', value)}/>
+                    <Dropdown title="Порода" items={breedItems} onChange={(value) => handleFilterChange('breedPet', value)}/>
                 </div>
                 <div className={cls.petsList}>
-                    Список питомцев
+                    <PetsList result={result} page={page} limit={limit} isLoading={isLoading} />
                 </div>
             </div>
         </div>

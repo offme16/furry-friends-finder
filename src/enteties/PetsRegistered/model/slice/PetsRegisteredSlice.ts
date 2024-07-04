@@ -1,6 +1,7 @@
 import { createSlice } from '@reduxjs/toolkit';
 import { PetsRegisteredSchema } from '../type/type';
 import { getPets } from '../service/getPets';
+import { searchPets } from '../service/searchPets';
 
 const initialState: PetsRegisteredSchema = {
     result: [],
@@ -8,14 +9,16 @@ const initialState: PetsRegisteredSchema = {
     isLoading: false,
     page: 1,
     limit: 9,
-
+}
 export const PetsRegisteredSlice = createSlice({
     name: 'Pets',
     initialState,
     reducers: {
         setPage: (state, action) => {
             state.page = action.payload;
-            console.log("a"+ action.payload);
+        },
+        setData: (state, action) => {
+            state.result = action.payload;
         }
     },
     extraReducers: (builder) => {
@@ -31,7 +34,7 @@ export const PetsRegisteredSlice = createSlice({
             .addCase(getPets.rejected, (state, action) => {
                 state.isLoading = false;
                 state.error = typeof action.payload === 'string' ? action.payload : 'Произошла ошибка';
-            });
+            })
     },
 });
 
