@@ -1,0 +1,90 @@
+
+
+.Busket{
+    position: fixed;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    margin: 10px;
+    right: 0;
+    z-index: 1000;
+}
+
+.busket_body{
+    display: inline-flex;
+    flex-direction: column;
+    position: fixed;
+    border-radius: 0 0 0 5px;
+    width: 30%;
+    padding-top: 55px ;
+    right: -30%;
+    background-color: rgb(247, 251, 251);
+    height: 100vh;
+    margin: 0;
+    transition: right 0.3s ease-in-out;
+    z-index: 999;
+}
+
+.open_busket{
+    right: 0;
+}
+
+.Busket:hover{
+    cursor: pointer;
+}
+
+.result_cost{
+    position: absolute;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    bottom: 0;
+    text-align: justify;
+    font-size: 24px;
+    padding: 20px;
+    font-weight: lighter;
+    border-top: 1px inset rgb(129, 127, 127) ;
+
+    Button{
+        padding: 5px;
+    }
+}
+
+.empty{
+    align-self: center;
+    justify-self: center;
+    width: 200px;
+}
+
+.busket_item_container{
+    overflow: auto;
+    height: calc(100% - 80px);
+}
+
+.busket_item_container.empty{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+}
+
+.empty_text{
+    text-align: center;
+}
+
+.busket_count{
+    display: flex;
+    position: absolute;
+    top: 13px;
+    left: 21px;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    font-size: 0.75em;
+    width: 14px;
+    height: 14px;
+    background-color: #F2968F;
+    border-radius: 50%;
+    pointer-events: none;
+}

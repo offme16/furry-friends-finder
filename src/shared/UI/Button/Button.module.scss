@@ -7,9 +7,15 @@
     color: #fff;
     font-size: var(--font-size-l);
     transition: background-color 0.2s;
+    box-shadow: 0 0px 4px rgba(0, 0, 0, 0.2);
+
 
     &:hover{
       background-color: #ffb1ab;
+    }
+
+    &:active{
+      box-shadow: none;
     }
   }
   
