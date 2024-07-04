@@ -8,7 +8,6 @@ const initialState: PetsRegisteredSchema = {
     isLoading: false,
     page: 1,
     limit: 9,
-};
 
 export const PetsRegisteredSlice = createSlice({
     name: 'Pets',

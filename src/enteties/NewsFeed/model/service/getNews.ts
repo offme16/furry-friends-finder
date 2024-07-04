@@ -13,7 +13,7 @@ interface KnownError {
 }
 
 export const getNews = createAsyncThunk(
-    'get_pets',
+    'get_news',
     async (offset: offsetProps, thunkAPI) => {
         try {
             const { page = 1, limit = 6 } = offset;
