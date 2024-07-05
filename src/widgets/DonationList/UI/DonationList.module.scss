@@ -16,7 +16,7 @@
 }
 .img_dog{
     position: absolute;
-    z-index: 100;
+    z-index: 10;
     left: 10%;
 }
 .img_dog_bg{
@@ -35,9 +35,10 @@
     align-items: center;
     position: relative;
     width: 80%;
-    height: 140px;
+    height: fit-content;
+    min-height: 140px;
     border-radius: 78px;
-    opacity: 0px;
+    padding: 15px 0;
     top: 236px;
     background: #DEC1E9;
     box-shadow: 0px 0px 4px 0px #00000040;
@@ -64,7 +65,10 @@
     position: relative;
     font-size: 24px;
     font-weight: normal;
-    left: 100px;
+    width: calc(100% - 268px * 2);
+    text-align: center;
+    // left: 100px;
+    z-index: 100;
 }
 .donation_card_container{
     position: relative;
@@ -93,6 +97,7 @@
     gap: 75px;
     min-height: 822px;
     margin-bottom: 20px;
+    z-index: 100;
 }
 .pagination_left{
     position: absolute;

@@ -9,6 +9,12 @@
     right: 0;
     z-index: 1000;
 }
+.busket_bg{
+    position: fixed;
+    width: 70%;
+    height: 100vh;
+    z-index: 50;
+}
 
 .busket_body{
     display: inline-flex;
@@ -45,9 +51,10 @@
     padding: 20px;
     font-weight: lighter;
     border-top: 1px inset rgb(129, 127, 127) ;
+    background-color: inherit;
 
     Button{
-        padding: 5px;
+        padding: 10px;
     }
 }
 
@@ -59,7 +66,7 @@
 
 .busket_item_container{
     overflow: auto;
-    height: calc(100% - 80px);
+    height: calc(100% - 90px);
 }
 
 .busket_item_container.empty{
