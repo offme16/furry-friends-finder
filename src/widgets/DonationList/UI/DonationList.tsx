@@ -6,12 +6,11 @@ import { useEffect } from "react";
 import donationDog from "shared/assests/donationList/donationDog.svg";
 import { DonationListItem } from '../DonationListItem';
 import { Donations } from 'enteties/DonationFeed';
-import { off } from 'process';
-import { PageError } from 'widgets/PageError';
 import Loader from 'shared/UI/Loader/Loader';
 import Button from 'shared/UI/Button/Button';
 import ToPrevArrow from "shared/assests/donationList/ToPrevArrow.svg";
 import toNextArrow from "shared/assests/donationList/toNextArrow.svg";
+import DonationError from 'widgets/DonationError/UI/DonationError';
 
 
 
@@ -31,7 +30,7 @@ const DonationList = () => {
 
     const donations = useSelector(getDonationsData); //получение данных из стора
     const donationItem = offset.error ?
-        <PageError /> : offset.isLoading ?
+        <DonationError /> : offset.isLoading ?
             <Loader /> :
             <div className={cls.donation_card_container}>
                 <span className={cls.pagination_left} onClick={() => handleSetPage(offset.page - 1)}>

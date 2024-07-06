@@ -19,7 +19,10 @@ const DonationListItem: React.FC<DonationListItemProps> = ({ donation }) => {
     };
     return (
         <div className={cls.DonationListItem}>
-            <img className={cls.donationImg} src={donation.img} alt={donation.name} />
+            <div className={cls.card_flipper}>
+                <img className={cls.donationImg} src={donation.img} alt={donation.name} />
+                <div className={cls.card_description}> {donation.description} </div>
+            </div>
             <div className={cls.donationDetails}>
                 <h3 className={cls.donationName}>
                     {donation.name}

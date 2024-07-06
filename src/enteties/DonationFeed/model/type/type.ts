@@ -13,5 +13,5 @@ export interface Donations {
     cost: number;
     count: number;
     img: string;
-    url: string
+    description: string
 }
