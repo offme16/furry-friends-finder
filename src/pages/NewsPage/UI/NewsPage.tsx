@@ -3,6 +3,7 @@ import { useSelector } from "react-redux";
 import cls from './NewsPage.module.scss';
 import { useAppDispatch } from "shared/lib/hooks/useAppDispatch";
 import { useEffect, useState } from "react";
+import Button from "shared/UI/Button/Button";
 
 const NewsPage = () => {
     const dispatch = useAppDispatch();
@@ -62,12 +63,12 @@ const NewsPage = () => {
             )}
         
             <div className={cls.Pagination}>
-                <button onClick={handlePreviousPage} disabled={currentPage === 1} className={cls.PageButton}>
+                <Button onClick={handlePreviousPage} disabled={currentPage === 1} className={cls.PageButton}>
                     Назад
-                </button>
-                <button onClick={handleNextPage} disabled= {news && news.length < maxcount} className={cls.PageButton}>
+                </Button>
+                <Button onClick={handleNextPage} disabled= {news && news.length < maxcount} className={cls.PageButton}>
                     Далее
-                </button>
+                </Button>
             </div>
         </div>
 

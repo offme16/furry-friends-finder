@@ -57,14 +57,11 @@
 }
 
 .PageButton {
-    background-color: #F2968F;
-    color: white;
-    border: none;
     padding: 10px 20px;
     border-radius: 5px;
-    cursor: pointer;
     z-index: 2;
     transition: background-color 0.2s;
+    font-size: var(--font-size-m);
 }
 
 .PageButton:disabled {
