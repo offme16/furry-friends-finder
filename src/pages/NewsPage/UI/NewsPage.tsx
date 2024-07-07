@@ -1,9 +1,8 @@
-import { getNews, getNewsData, offsetNewsPage } from "enteties/NewsFeed";
+import { getNews, getNewsData, offsetNewsPage, News } from "enteties/NewsFeed";
 import { useSelector } from "react-redux";
 import cls from './NewsPage.module.scss';
 import { useAppDispatch } from "shared/lib/hooks/useAppDispatch";
 import { useEffect, useState } from "react";
-import { News } from "enteties/NewsFeed/model/type/type";
 
 const NewsPage = () => {
     const dispatch = useAppDispatch();
