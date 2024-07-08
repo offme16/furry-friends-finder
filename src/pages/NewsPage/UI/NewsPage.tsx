@@ -4,24 +4,31 @@ import cls from './NewsPage.module.scss';
 import { useAppDispatch } from "shared/lib/hooks/useAppDispatch";
 import { useEffect, useState } from "react";
 import Button from "shared/UI/Button/Button";
+import Pagination from "shared/UI/Pagination/Pagination";
+import Loader from "shared/UI/Loader/Loader";
+import { NewsFeedSliceActions } from "enteties/NewsFeed/model/slice/NewsFeedSlice";
 
 const NewsPage = () => {
     const dispatch = useAppDispatch();
     const [currentPage, setCurrentPage] = useState(1);
     const [randomNews, setRandomNews] = useState<News[]>([]);;
-    const news = useSelector(getNewsData);
+    const newsInfo = useSelector(getNewsData);
+    const {result, page, limit, isLoading} = newsInfo;
     const maxcount: number = 6;
     
+    const handleSetPage = (page: number) => {
+        dispatch(NewsFeedSliceActions.setPage(page));
+    };
 
     useEffect(() => {
-        dispatch(getNews({page: currentPage, limit: 6}));
-    }, [dispatch, currentPage])
+        dispatch(getNews({page, limit}));
+    }, [dispatch, page]);
 
     useEffect(() => {
-        if (news) {
-            setRandomNews(shuffleArray(news));
+        if (result) {
+            setRandomNews(shuffleArray(result));
         }
-    }, [news]);
+    }, [result]);
 
     const shuffleArray = (array: News[]) : News[] => {
         let shuffledArray = array.slice();
@@ -32,24 +39,11 @@ const NewsPage = () => {
         return shuffledArray;
     };
 
-    const handleNextPage = () => {
-        if (news && news.length >= maxcount) {
-            setCurrentPage(prevPage => prevPage + 1);
-        }
-        
-    };
-
-    const handlePreviousPage = () => {
-        if (currentPage > 1) {
-            setCurrentPage(prevPage => prevPage - 1);
-        }
-    };
-
     return (
         <div className={cls.NewsPage}>
             <div className={cls.char_bg}></div>
             <div className={cls.char}></div>
-            {randomNews && randomNews.length > 0 ? (
+            {isLoading ? <Loader />: randomNews && randomNews.length > 0 ? (
                 <div className = {cls.NewsGrid}>
                     {randomNews.map((item) => (
                         <div key = {item.id} className = {cls.NewsItem}>
@@ -61,15 +55,14 @@ const NewsPage = () => {
             ) : (
                 <p>No news available</p>
             )}
-        
-            <div className={cls.Pagination}>
-                <Button onClick={handlePreviousPage} disabled={currentPage === 1} className={cls.PageButton}>
-                    Назад
-                </Button>
-                <Button onClick={handleNextPage} disabled= {news && news.length < maxcount} className={cls.PageButton}>
-                    Далее
-                </Button>
-            </div>
+
+            <Pagination
+                currentPage={page}
+                totalItems={result ? result.length : 0}
+                maxcount={limit}
+                onPageChange={handleSetPage}
+            />
+            
         </div>
 
     )
