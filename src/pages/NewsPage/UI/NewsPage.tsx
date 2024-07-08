@@ -57,6 +57,7 @@ const NewsPage = () => {
             )}
 
             <Pagination
+                className={cls.Pagination}
                 currentPage={page}
                 totalItems={result ? result.length : 0}
                 maxcount={limit}
