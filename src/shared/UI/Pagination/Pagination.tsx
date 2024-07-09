@@ -1,18 +1,20 @@
-import { FC } from "react";
+import { FC, HTMLAttributes } from "react";
 import cls from "./Pagination.module.scss";
+import clsx from "clsx";
 import Button from "../Button/Button";
 
-interface PaginationProps {
+interface PaginationProps extends HTMLAttributes<any>{
+    className?: string,
     currentPage: number;
     totalItems: number;
     maxcount: number;
     onPageChange: (page: number) => void;
 }
 
-const Pagination: FC<PaginationProps> = ({ currentPage, totalItems, maxcount, onPageChange }) => {
+const Pagination: FC<PaginationProps> = ({className, currentPage, totalItems, maxcount, onPageChange }) => {
 
     return (
-        <div className={cls.Pagination}>
+        <div className={clsx(cls.Pagination, className)}>
             <Button onClick={() => onPageChange(currentPage - 1)} disabled={currentPage === 1} className={cls.PageButton}>
                 Назад
             </Button>
