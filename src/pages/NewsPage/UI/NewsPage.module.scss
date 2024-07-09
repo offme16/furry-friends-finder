@@ -53,7 +53,7 @@
     width: 100%;   
     margin-top: auto;
     padding: 0;
-    & > *{
+    Button{
         font-size: var(--font-size-m);
     }
 }
@@ -78,4 +78,30 @@
     right: -250px;
     top: -100px;
     z-index: 0;
+}
+
+
+
+@media (max-width: 780px) {
+    .Pagination{
+        Button:hover:not(:disabled) {
+            background-color: #F2968F;
+        }
+    }
+}
+
+@media (max-width: 650px) {
+    .NewsGrid {
+        grid-template-columns: 1fr 1fr;
+    }
+    .char {
+        top:auto;
+        bottom: 200px;
+    }
+}
+
+@media (max-width: 480px) {
+    .NewsGrid {
+        grid-template-columns: 1fr;
+    }
 }

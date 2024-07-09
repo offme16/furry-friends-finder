@@ -1,20 +1,17 @@
-import { getNews, getNewsData, offsetNewsPage, News } from "enteties/NewsFeed";
+import { getNews, getNewsData, News } from "enteties/NewsFeed";
 import { useSelector } from "react-redux";
 import cls from './NewsPage.module.scss';
 import { useAppDispatch } from "shared/lib/hooks/useAppDispatch";
 import { useEffect, useState } from "react";
-import Button from "shared/UI/Button/Button";
 import Pagination from "shared/UI/Pagination/Pagination";
 import Loader from "shared/UI/Loader/Loader";
 import { NewsFeedSliceActions } from "enteties/NewsFeed/model/slice/NewsFeedSlice";
 
 const NewsPage = () => {
     const dispatch = useAppDispatch();
-    const [currentPage, setCurrentPage] = useState(1);
     const [randomNews, setRandomNews] = useState<News[]>([]);;
     const newsInfo = useSelector(getNewsData);
     const {result, page, limit, isLoading} = newsInfo;
-    const maxcount: number = 6;
     
     const handleSetPage = (page: number) => {
         dispatch(NewsFeedSliceActions.setPage(page));
