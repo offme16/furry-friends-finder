@@ -7,7 +7,7 @@ import email from '../../../shared/assests/email.svg';
 import github from '../../../shared/assests/github.svg';
 import { NavLink } from 'react-router-dom';
 import { DonationList } from 'widgets/DonationList';
-import dog_petsList from "shared/assests/dog_petsList.png"
+import dog_petsList from "shared/assests/donationList/donationDog.svg"
 import { PetsList } from 'widgets/PetsList';
 import { useSelector } from 'react-redux';
 import { getPets, PetsData } from 'enteties/PetsRegistered';
@@ -37,21 +37,24 @@ const MainPage = () => {
                 </div>
             </section>
 
-           <section className={cls.pets}>
-            <div className={cls.pets_container}>
-            <div className={cls.MainPetsList}>
-                <div className={cls.char_bg_blue}></div>
-                <h2 className={cls.main_text}>Наши питомцы</h2>
-                <img className={cls.MainPetImage} src={dog_petsList} alt="MainDog" />
-                <div className={cls.char_bg_purple}>Мы покажем Вам наших питомцев</div>
-            </div>
-            <div className={cls.char_bg_orange}></div>
-            <div className={cls.char_bg_cyan}></div>
-            <div className={cls.char_bg_green}></div>
-            </div>
-            
-            <PetsList result={result} page={page} limit={limit} isLoading={isLoading}/>
-           </section>
+            <section className={cls.pets}>
+                <header>
+                    <div className={cls.title}>
+                        <h1>Наши питомцы</h1>
+                    </div>
+                    <div className={cls.img_dog_bg}></div>
+                    <img className={cls.img_dog} src={dog_petsList} alt="MainDog" />
+                    <div className={cls.dog_char}>
+                        <h2>
+                            Мы покажем Вам наших питомцев
+                        </h2>
+                    </div>
+                    <div className={cls.char_bg_orange}></div>
+                    <div className={cls.char_bg_cyan}></div>
+                    <div className={cls.char_bg_green}></div>
+                </header>                
+                <PetsList result={result} page={page} limit={limit} isLoading={isLoading}/>
+            </section>
 
             <DonationList />
 
