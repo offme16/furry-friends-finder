@@ -3,7 +3,6 @@ import { useSelector } from "react-redux";
 import cls from './DonationList.module.scss';
 import { useAppDispatch } from "shared/lib/hooks/useAppDispatch";
 import { useEffect } from "react";
-import donationDog from "shared/assests/donationList/donationDog.svg";
 import { DonationListItem } from '../DonationListItem';
 import { Donations } from 'enteties/DonationFeed';
 import Loader from 'shared/UI/Loader/Loader';
@@ -11,7 +10,7 @@ import Button from 'shared/UI/Button/Button';
 import ToPrevArrow from "shared/assests/donationList/ToPrevArrow.svg";
 import toNextArrow from "shared/assests/donationList/toNextArrow.svg";
 import DonationError from 'widgets/DonationError/UI/DonationError';
-import { off } from 'process';
+import { SectionHeader } from 'shared/UI/SectionHeader';
 
 
 
@@ -52,19 +51,7 @@ const DonationList = () => {
 
     return (
         <div className={cls.DonationList}>
-            <header>
-                <div className={cls.title}>
-                    <h1>Ты можешь помочь нам!</h1>
-                </div>
-                <div className={cls.img_dog_bg}></div>
-                <img className={cls.img_dog} src={donationDog} alt="donation dog" />
-                <div className={cls.dog_char}>
-                    <h2>
-                        Здесь ты можешь помочь нам и нашим пушистым друзьям!
-                    </h2>
-                </div>
-            </header>
-
+            <SectionHeader mainText={'Ты можешь помочь нам!'} subText={'Здесь ты можешь помочь нам и нашим пушистым друзьям!'}></SectionHeader>
             <div className={cls.donation_list_container}>
                 {loader}
                 {donationItem}
