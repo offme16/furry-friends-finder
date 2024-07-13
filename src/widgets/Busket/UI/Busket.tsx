@@ -35,7 +35,7 @@ const Busket = () => {
 
     return (
         <div >                
-            <div onClick={handleBackgroundClick} className={cls.busket_bg}></div>
+            <div onClick={handleBackgroundClick} className={`${cls.busket_bg} ${isClicked ? cls.open : null}`}></div>
             <div onClick={handleClick} className={cls.Busket}>
                 <img src={busketIcon} alt="корзина" />
                 <div className={cls.busket_count}>{busket?.length}</div>
@@ -45,7 +45,7 @@ const Busket = () => {
                     {itemList}
                 </div>
                 <div className={cls.result_cost}>
-                    {` Итого: ${busket?.map(busketItem => busketItem.cost * busketItem.count).reduce((x, y) => x + y, 0)}`} &#8381;
+                    {`Итого:${busket?.map(busketItem => busketItem.cost * busketItem.count).reduce((x, y) => x + y, 0)}`} &#8381;
                     <Button> Пожертвовать! </Button>
                 </div>
             </div>

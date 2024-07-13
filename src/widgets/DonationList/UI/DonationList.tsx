@@ -11,6 +11,7 @@ import Button from 'shared/UI/Button/Button';
 import ToPrevArrow from "shared/assests/donationList/ToPrevArrow.svg";
 import toNextArrow from "shared/assests/donationList/toNextArrow.svg";
 import DonationError from 'widgets/DonationError/UI/DonationError';
+import { off } from 'process';
 
 
 
@@ -29,10 +30,9 @@ const DonationList = () => {
     };
 
     const donations = useSelector(getDonationsData); //получение данных из стора
-    const donationItem = offset.error ?
-        <DonationError /> : offset.isLoading ?
-            <Loader /> :
-            <div className={cls.donation_card_container}>
+    const loader = offset.error ? <div className={cls.spinner}><DonationError/></div> :  offset.isLoading ? <div className={cls.spinner}><Loader /> </div> : null;
+    const donationItem = 
+            <div className={`${cls.donation_card_container} ${offset.isLoading || offset.error ? cls.loading : null}`}>
                 <span className={cls.pagination_left} onClick={() => handleSetPage(offset.page - 1)}>
                     <Button disabled={offset.page === 1} className={cls.pagination_btn}>
                         <img className={cls.pagination_icon} src={ToPrevArrow} />
@@ -48,7 +48,7 @@ const DonationList = () => {
                         <img className={cls.pagination_icon} src={toNextArrow} />
                     </Button>
                 </span>
-            </div>
+            </div>;
 
     return (
         <div className={cls.DonationList}>
@@ -66,9 +66,9 @@ const DonationList = () => {
             </header>
 
             <div className={cls.donation_list_container}>
+                {loader}
                 {donationItem}
             </div>
-            <div className={cls.pagination}></div>
         </div>)
 }
 export default DonationList;

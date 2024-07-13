@@ -30,15 +30,18 @@ const DonationListItem: React.FC<DonationListItemProps> = ({ donation }) => {
                 <p className={cls.donationCost}>
                     Цена: {donation.cost} &#8381;.
                 </p>
-                <Button disabled={donation.count === 0} onClick={handleDecreaseCount} className={cls.donate_btn}>
+                <div className={cls.actions}>
+                    <Button disabled={donation.count === 0} onClick={handleDecreaseCount} className={cls.donate_btn}>
                     -
-                </Button>
-                <span className={cls.donationCount}>
-                    Количество: {donation.count}
-                </span>
-                <Button onClick={handleIncreaseCount} className={cls.donate_btn}>
-                    +
-                </Button>
+                    </Button>
+                    <span className={cls.donationCount}>
+                        {donation.count}
+                    </span>
+                    <Button onClick={handleIncreaseCount} className={cls.donate_btn}>
+                        +
+                    </Button>
+                </div>
+                
             </div>
             {/* <p className={cls.total}>Итого: {donation.count * donation.cost} &#8381;</p> */}
         </div>)
