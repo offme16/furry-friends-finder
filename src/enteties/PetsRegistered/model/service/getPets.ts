@@ -5,6 +5,7 @@ import { AxiosError } from 'axios';
 interface OffsetProps {
     page?: number;
     limit?: number;
+    filters?: FilterProps;
 }
 interface FilterProps {
     city?: string;
@@ -21,13 +22,14 @@ interface KnownError {
 
 export const getPets = createAsyncThunk(
     'get_pets',
-    async ({ page, limit }: OffsetProps, thunkAPI) => {
+    async ({ page, limit, filters = {} }: OffsetProps, thunkAPI) => {
         try {
             const response = await $api.get(`https://6667efe7f53957909ff5d53d.mockapi.io/pets`,
                 {
                     params: {
                         page,
-                        limit
+                        limit,
+                        ...filters
                     }
                 }
             );

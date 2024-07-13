@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import cls from './Dropdown.module.scss';
-import arrow_right from '../../assests/right_arrow_icon.svg'
+import arrow_right from '../../assests/right_arrow_icon.svg';
+
 interface DropdownProps {
     title: string;
     items: Array<{ label: string; value: string }>;

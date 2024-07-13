@@ -6,8 +6,7 @@ import { useAppDispatch } from "shared/lib/hooks/useAppDispatch";
 import { PetsData, getPets, getUniqueFilterValues } from "enteties/PetsRegistered";
 import { useSelector } from "react-redux";
 import { PetsList } from "widgets/PetsList";
-import { searchPets } from "enteties/PetsRegistered/model/service/searchPets";
-import { debounce } from "lodash";
+import { debounce }  from 'lodash';
 
 
 const SearchPage = () => {
@@ -26,14 +25,14 @@ const SearchPage = () => {
     });
 
     useEffect(() => {
-        dispatch(getPets({page, limit}));
+        dispatch(getPets({page, limit, filters}));
         dispatch(getUniqueFilterValues())
-    },[dispatch, page])
+    },[dispatch, page, filters])
 
     const handleFilterChange = (filterName: string, value: string) => {
         const updatedFilters = { ...filters, [filterName]: value };
         setFilters(updatedFilters);
-        dispatch(searchPets(updatedFilters));
+        dispatch(getPets({ page: 1, limit, filters: updatedFilters }));
     };    
 
     const debouncedSearch = useCallback(debounce((value: string) => {
@@ -42,7 +41,7 @@ const SearchPage = () => {
 
     const handleCityInputChange = (value: string) => {
         setInputValue(value);
-        handleFilterChange('city', value);
+        debouncedSearch(value);
     };
 
     const genderItems = refs?.find(ref => ref.gender)?.gender?.map(gender => ({ label: gender, value: gender })) ?? [];
@@ -55,23 +54,23 @@ const SearchPage = () => {
             <div className={cls.content}>
                 <div className={cls.filter}>
                  <Input
-                  placeholder="Любой город"
-                  onChange={handleCityInputChange}
-                  value={inputValue}>В каком городе поищем?</Input>
+                    placeholder="Любой город"
+                    onChange={handleCityInputChange}
+                    value={inputValue}>В каком городе поищем?</Input>
                     <Dropdown
-                     title="Кого ищете?"
-                     items={genderItems}
-                     onChange = {(value) => handleFilterChange('genderPet', value)}
+                        title="Кого ищете?"
+                        items={genderItems}
+                        onChange = {(value) => handleFilterChange('genderPet', value)}
                     />
                     <Dropdown
-                     title="Окрас"
-                     items={colorItems}
-                     onChange = {(value) => handleFilterChange('colorPet', value)}
+                        title="Окрас"
+                        items={colorItems}
+                         onChange = {(value) => handleFilterChange('colorPet', value)}
                     />
                     <Dropdown
-                     title="Порода"
-                     items={breedItems}
-                     onChange={(value) => handleFilterChange('breedPet', value)}
+                        title="Порода"
+                        items={breedItems}
+                        onChange={(value) => handleFilterChange('breedPet', value)}
                     />
                 </div>
                 <div className={cls.petsList}>

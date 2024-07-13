@@ -1,7 +1,6 @@
 import { PayloadAction, createSlice } from '@reduxjs/toolkit';
 import { Pets, PetsRegisteredSchema, Refs } from '../type/type';
 import { getPets } from '../service/getPets';
-import { searchPets } from '../service/searchPets';
 
 const initialState: PetsRegisteredSchema = {
     result: [],
