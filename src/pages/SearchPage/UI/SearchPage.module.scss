@@ -25,6 +25,9 @@
         background-color: #ffffff;
         padding: 20px 10px;
         height: fit-content;
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
     }
 
     .petsList {

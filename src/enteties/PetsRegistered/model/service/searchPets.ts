@@ -8,7 +8,6 @@ interface FilterProps {
     genderPet?: string;
     breedPet?: string;
     colorPet?: string;
-    agePet?: string;
 }
 interface KnownError {
     message: string;
@@ -19,7 +18,7 @@ interface KnownError {
 export const searchPets = createAsyncThunk(
     'search_pets',
     async (filters: FilterProps, thunkAPI) => {
-        const { city, genderPet, breedPet, colorPet, agePet } = filters;
+        const { city, genderPet, breedPet, colorPet } = filters;
         try {
             const response = await $api.get(`https://6667efe7f53957909ff5d53d.mockapi.io/pets`,
                 {
@@ -28,7 +27,6 @@ export const searchPets = createAsyncThunk(
                         genderPet,
                         breedPet,
                         colorPet,
-                        agePet
                     }
                 }
             );

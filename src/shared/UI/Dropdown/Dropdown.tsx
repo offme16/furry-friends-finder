@@ -15,7 +15,8 @@ const Dropdown: React.FC<DropdownProps> = ({ title, items, onChange }) => {
     };
 
     const handleCheckboxChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-        onChange(event.target.value);
+        const value = event.target.checked ? event.target.value : '';
+        onChange(value);
     };
 
     return (

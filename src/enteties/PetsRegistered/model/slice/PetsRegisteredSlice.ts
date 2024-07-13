@@ -1,10 +1,11 @@
-import { createSlice } from '@reduxjs/toolkit';
-import { PetsRegisteredSchema } from '../type/type';
+import { PayloadAction, createSlice } from '@reduxjs/toolkit';
+import { Pets, PetsRegisteredSchema, Refs } from '../type/type';
 import { getPets } from '../service/getPets';
 import { searchPets } from '../service/searchPets';
 
 const initialState: PetsRegisteredSchema = {
     result: [],
+    refs: [],
     error: '',
     isLoading: false,
     page: 1,
@@ -14,11 +15,14 @@ export const PetsRegisteredSlice = createSlice({
     name: 'Pets',
     initialState,
     reducers: {
-        setPage: (state, action) => {
+        setPage: (state, action: PayloadAction<number>) => {
             state.page = action.payload;
         },
-        setData: (state, action) => {
+        setData: (state, action: PayloadAction<Pets[]>) => {
             state.result = action.payload;
+        },
+        setRefs: (state, action: PayloadAction<Refs[]>) => {
+            state.refs = action.payload;
         }
     },
     extraReducers: (builder) => {
@@ -27,7 +31,7 @@ export const PetsRegisteredSlice = createSlice({
                 state.error = undefined;
                 state.isLoading = true;
             })
-            .addCase(getPets.fulfilled, (state, action) => {
+            .addCase(getPets.fulfilled, (state, action: PayloadAction<Pets[]>) => {
                 state.isLoading = false;
                 state.result = action.payload;
             })
