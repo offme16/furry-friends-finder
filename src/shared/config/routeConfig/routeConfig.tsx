@@ -10,7 +10,6 @@ export enum AppRoutes {
     NEWS = 'news',
     SEARCH = 'search',
     PET = 'pet',
-    PETS = 'pets',
     PAGE_NOT_FOUND = 'page_not_found'
 }
 
@@ -19,7 +18,6 @@ export const RoutePath: Record<AppRoutes, string> = {
     [AppRoutes.NEWS]: '/news',
     [AppRoutes.SEARCH]: '/search',
     [AppRoutes.PET]: '/pet/:id',
-    [AppRoutes.PETS]: '/pets',
     [AppRoutes.PAGE_NOT_FOUND]: '*',
 };
 
@@ -38,10 +36,6 @@ export const routeConfig: Record<AppRoutes, RouteProps> = {
     },
     [AppRoutes.PET]: {
         path: RoutePath.pet,
-        element: <PetPage />,
-    },
-    [AppRoutes.PETS]: {
-        path: RoutePath.pets,
         element: <PetPage />,
     },
     [AppRoutes.PAGE_NOT_FOUND]: {

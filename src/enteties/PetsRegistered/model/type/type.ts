@@ -1,5 +1,6 @@
 export interface PetsRegisteredSchema {
     result?: Pets[];
+    refs?: Refs[];
     isLoading: boolean;
     error?: string;
     page: number;
@@ -18,4 +19,10 @@ export interface Pets {
     features: Array<string>;
     description: string;
     picturePet: string;
+}
+
+export interface Refs {
+    breeds?: string[];
+    colors?: string[];
+    gender?: string[];
 }
