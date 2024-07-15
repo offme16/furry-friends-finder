@@ -37,6 +37,8 @@
         border-radius: 4px;
         z-index: 1;
         padding: 10px 0;
+        max-height: 400px;
+        overflow: overlay;
 
         label {
             display: block;
