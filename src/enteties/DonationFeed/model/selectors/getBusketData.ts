@@ -1,3 +1,3 @@
 import { StateSchema } from "app/providers/storeProvider/config/stateSchema";
 
-export const getNewsData = (state: StateSchema) => state?.news;
+export const getBusketData = (state: StateSchema) => state?.donations.busket;

@@ -6,16 +6,17 @@ const initialState:NewsFeedSchema = {
     result: [],
     error: '',
     isLoading: false,
-    page: 0,
-    limit: 5,
+    page: 1,
+    limit: 6,
 };
 
 export const NewsFeedSlice = createSlice({
-    name: 'Pets',
+    name: 'News',
     initialState,
     reducers: {
         setPage: (state, action) => {
             state.page = action.payload;
+            console.log("a"+ action.payload);
         }
     },
     extraReducers: (builder) => {

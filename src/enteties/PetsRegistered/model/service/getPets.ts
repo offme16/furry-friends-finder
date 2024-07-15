@@ -14,9 +14,16 @@ interface KnownError {
 
 export const getPets = createAsyncThunk(
     'get_pets',
-    async (data: OffsetProps, thunkAPI) => {
+    async ({ page, limit }: OffsetProps, thunkAPI) => {
         try {
-            const response = await $api.post(`https://6667efe7f53957909ff5d53d.mockapi.io/pets`);
+            const response = await $api.get(`https://6667efe7f53957909ff5d53d.mockapi.io/pets`,
+                {
+                    params: {
+                        page,
+                        limit
+                    }
+                }
+            );
             if (!response.data) {
                 throw new Error();
             }

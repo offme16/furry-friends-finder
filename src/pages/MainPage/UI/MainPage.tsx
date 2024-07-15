@@ -7,14 +7,29 @@ import phone from '../../../shared/assests/phone.svg';
 import email from '../../../shared/assests/email.svg';
 import github from '../../../shared/assests/github.svg';
 import { NavLink } from 'react-router-dom';
+import { DonationList } from 'widgets/DonationList';
+import dog_petsList from "shared/assests/donationList/donationDog.svg"
+import { PetsList } from 'widgets/PetsList';
+import { useSelector } from 'react-redux';
+import { getPets, PetsData } from 'enteties/PetsRegistered';
+import { useEffect } from 'react';
+import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch';
+
 const MainPage = () => {
+    const dispatch = useAppDispatch();
+    const PetsInfo = useSelector(PetsData);
+    const {result, page, limit, isLoading} = PetsInfo;
+
+    useEffect(() => {
+        dispatch(getPets({page, limit}));
+    }, [dispatch, page]);
 
     return (
         <div className={cls.MainPage}>
             <section className={cls.head}>
                 <div className={cls.char}></div>
                 <div className={cls.title}>
-                    <h1>Счастье ближе,<br /> чем вы думаете</h1>
+                    <h1>Cчастье ближе,<br /> чем вы думаете</h1>
                     <NavLink to={'./search'}><Button>Найти питомца!</Button></NavLink>
                 </div>
                 <div className={cls.bg}>
@@ -22,14 +37,32 @@ const MainPage = () => {
                     <img className={cls.bg_img} src={dog} alt='dog' />
                 </div>
             </section>
+         <section className={cls.pets}>
+                <header>
+                    <div className={cls.title}>
+                        <h1>Наши питомцы</h1>
+                    </div>
+                    <div className={cls.img_dog_bg}></div>
+                    <img className={cls.img_dog} src={dog_petsList} alt="MainDog" />
+                    <div className={cls.dog_char}>
+                        <h2>
+                            Мы покажем Вам наших питомцев
+                        </h2>
+                    </div>
+                    <div className={cls.char_bg_orange}></div>
+                    <div className={cls.char_bg_cyan}></div>
+                    <div className={cls.char_bg_green}></div>
+                </header>                
+                <PetsList result={result} page={page} limit={limit} isLoading={isLoading}/>
+            </section>
+         <DonationList />
             <section className={cls.contacts}>
-                {/* Нужно стилизовать вот этот блок div */}
                 <div className={cls.contactsTitle}>
                     <h1>Наши контакты</h1>
                     <div className={cls.circleBlue}></div>
                     <img className={cls.petImage} src={dog_2} alt="Dog" />
                     <div className={cls.circlePurple}>Остались вопросы? Свяжитесь с нами
-                        любым удобным для вас способом или оставьте заявку.</div>
+                      любым удобным для вас способом или оставьте заявку.</div>
                 </div>
                 <div className={cls.containers}>
                     <div className={cls.title}>
@@ -66,6 +99,7 @@ const MainPage = () => {
                 </div>
             </section>
         </div>
+
     )
 }
 
