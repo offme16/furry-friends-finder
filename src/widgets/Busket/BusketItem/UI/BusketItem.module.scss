@@ -17,9 +17,8 @@
 }
 
 .basketImg {
-    width: 120px;
-    height: 120px;
-    object-fit: cover;
+    width: 40%;
+    aspect-ratio: 1 / 1;
     margin-right: 20px;
 }
 
@@ -32,6 +31,7 @@
 .basketName {
     font-size: 1.25rem;
     margin-bottom: 8px;
+    width: calc(100% - 20px);
 }
 
 .basketCost, .basketCount {
@@ -46,14 +46,15 @@
 }
 
 .basketButton, .basketRemoveButton {
-    display: flex;
-    align-items: flex-end;
+    width: calc(20px + 1vw);
+    height: calc(20px + 1vw);
+    display: inline-flex;
+    align-items: center;
     justify-content: center;
+    margin: 5px;
     padding: 5px;
-    height: 30px;
-    width: 30px;
-    border: none;
-    border-radius: 4px;
+    border-radius: 5px;
+    box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.48);
     cursor: pointer;
     transition: background-color 0.3s;
 }

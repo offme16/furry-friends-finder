@@ -1,32 +1,70 @@
+*{
+    -webkit-tap-highlight-color: transparent;
+}
 .DonationListItem{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+    display: grid;
     box-sizing: border-box;
-    height: 401px;
     background: #FCFCFC;
-    box-shadow: 0px 0px 16px rgba(0, 0, 0, 0.48);
+    box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.48);
     border-radius: 16px;
 }
-.donationCard:hover {
+.DonationListItem:hover {
     transform: scale(1.05);
 }
 .donationImg {
-    width: 250px;
-    height: 250px;
-    object-fit: round($number: 0);
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    transition: transform 1s;
+}
+.card_description{
+    display: flex;
+    align-items: center;
+    font-size: calc(0.5em + 1vw);
+    justify-content: center;
+    position: absolute;
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    top: 0;
+    z-index: 0;
+    text-align: center;
+    line-height: normal;
+    background-color: #FCFCFC;
+    backface-visibility: hidden;
+    transform: rotateY(-180deg);
+    transition: transform 1s ;
+}
+
+.card_flipper{
+    position: relative;
+    width: 60%;
+    justify-self: center;
+    aspect-ratio: 1 / 1;
+}
+.card_flipper:hover{
+    .card_description{
+        transform: rotateY(0);
+        z-index: 1;
+    }
+    .donationImg{
+        transform: rotateY(180deg);
+        z-index: 0;
+    }
 }
 .donationDetails {
-    padding: 16px;
+    padding: 5px;
     text-align: center;
+    display: grid;
+    width: 100%;
 }
 .donationName {
-    font-size: 1.25rem;
-    margin-bottom: 8px;
+    font-size: calc(0.5em + 0.8vw);
+    line-height: normal;
 }
 .donationCost, .donationCount {
-    margin: 4px 0;
+    margin: 5px;
     color: #555;
+    font-size: calc(0.5em + 0.8vw);
+    line-height: normal;
 }
 .donationLink {
     display: inline-block;
@@ -39,10 +77,10 @@
     transition: background-color 0.3s;
 }
 .donate_btn{
-    height: 30px;
-    width: 30px;
+    width: calc(20px + 0.8vw);
+    height: calc(20px + 0.8vw);
     display: inline-flex;
-    align-items: flex-end;
+    align-items: center;
     justify-content: center;
     margin: 5px;
     padding: 5px;
@@ -55,4 +93,11 @@
 .total{
     font-size: 18px;
     margin: 5px;
+}
+
+.actions{
+    align-self: flex-end;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }

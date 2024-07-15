@@ -9,6 +9,16 @@
     right: 0;
     z-index: 1000;
 }
+.busket_bg{
+    display: none;
+    position: fixed;
+    width: 70%;
+    height: 100vh;
+    z-index: 1000;
+}
+.busket_bg.open{
+    display: block;
+}
 
 .busket_body{
     display: inline-flex;
@@ -21,10 +31,18 @@
     background-color: rgb(247, 251, 251);
     height: 100vh;
     margin: 0;
-    transition: right 0.3s ease-in-out;
+    transition: right 0.3s ease-in-out, width 0.3s ease-in-out;
     z-index: 999;
 }
-
+@media screen and (max-width: 960px) {
+    .busket_body{
+        width: 100%;
+        right: -100%;
+    }
+    .busket_bg.open{
+        display: none;
+    }
+}
 .open_busket{
     right: 0;
 }
@@ -45,9 +63,10 @@
     padding: 20px;
     font-weight: lighter;
     border-top: 1px inset rgb(129, 127, 127) ;
+    background-color: inherit;
 
     Button{
-        padding: 5px;
+        padding: 10px;
     }
 }
 
@@ -59,7 +78,7 @@
 
 .busket_item_container{
     overflow: auto;
-    height: calc(100% - 80px);
+    height: calc(100% - 90px);
 }
 
 .busket_item_container.empty{
