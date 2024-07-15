@@ -1,167 +1,61 @@
-.PetsPage {
-  position: relative;
-  padding: 90px 20px 20px 20px;
-  min-height: 100vh;
-  background-color: #f0eaea;
-  overflow: hidden;
-  & > *{
-      max-width: 800px;
-      margin: 0 auto;
-  }
+
+.PetPage {
+    padding: 120px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+    background-color: #f0eaea;
 }
 
-.PetsGrid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 20px;
-  transition: resize 0.2s;
-  width: 1000px;
-  padding-left: 20px;
+h2 {
+    font-size: 30px;
+    color: #283C40;
+    line-height: 50px;
+    padding-top: 20px;
 }
 
-.PetsItem {
-  background-color: white;
-  border-radius: 15px;
-  overflow: hidden;
-  max-height: 400px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  transition: transform 0.2s, max-height 0.2s;
-  z-index: 2;
+table {
+    width: 30%;
+    font-size: 22px;
+    color: #283C40;
+    line-height: 40px;
 }
 
-.PetsItem:hover {
-  max-height: 100%;
-  transform: scale(1.05)
-  
+.features {
+    font-size: 22px;
+    color: #283C40;
+    line-height: 40px;
+    li {
+        list-style-position: inside;
+        margin: 20px;
+    }
+
+    li::marker {
+        color:  #F2968F;
+    }
 }
 
-.PetsImage {
-  width: 100%;
-  height: 200px;
-  object-fit: cover;
+.description {
+    font-size: 22px;
+    color: #283C40;
+    line-height: 40px;
 }
 
-.PetsFact {
-  padding: 4px;
-  font-size: 16px;
-  color: #333;
+.btnBack {
+    width: 150px;
+    background-color: #f0eaea;
+    color: #F2968F;
+    transition: background-color 0.2s;
+
+    &:hover {
+        background-color: #F2968F;
+        color: #f0eaea;
+    }
 }
 
-.Pagination {
-  display: flex;
-  justify-content: space-between;
-  margin-top: 20px;
-  padding-left: 20px;
-  padding-right: 0px;
-}
-
-.PageButton {
-  background-color: #F2968F;
-  color: white;
-  border: none;
-  padding: 10px 20px;
-  border-radius: 5px;
-  cursor: pointer;
-  z-index: 2;
-  transition: background-color 0.2s;
-}
-
-.PageButton:disabled {
-  background-color: #d3d3d3;
-  cursor: not-allowed;
-}
-
-.PageButton:hover:not(:disabled) {
-  background-color: #f4a9a4;
-}
-
-.char_bg_blue {
-  width: 220px;
-  height: 220px;
-  background-color: #C1CCE9;
-  box-shadow: 0px 0px 4px 0px #00000040;
-  border-radius: 50%;
-  position: absolute;
-  top: 90px;
-  left: 350px;
-  z-index: 0;
-}
-
-.char_bg_purple {
-  width: 650px;
-  height: 60px;
-  background-color: #DEC1E9;
-  box-shadow: 0px 0px 4px 0px #00000040;
-  border-radius: 78px;
-  position: absolute;
-  top: 215px;
-  left: 380px;
-  z-index: 1;
-  text-align: center;
-  padding-top: 20px;
-}
-
-.char_bg_cyan {
-  width: 300px;
-  height: 300px;
-  background-color: #C1E9E6;
-  box-shadow: 0px 0px 4px 0px #00000040;
-  border-radius: 50%;
-  position: absolute;
-  top: 640px;
-  left: 580px;
-  z-index: 0;
-}
-.char_bg_orange {
-  width: 300px;
-  height: 300px;
-  background-color: #E9CFC1;
-  border-radius: 50%;
-  position: absolute;
-  left: 840px;
-  top: 240px;
-  z-index: 0;
-}
-
-.char_bg_green {
-  width: 180px;
-  height: 180px;
-  background-color: #C2E9C1;
-  border-radius: 50%;
-  position: absolute;
-  left: 830px;
-  top: 1100px;
-  z-index: 0px;
-}
-
-.PetsDiscription {
-  display: flex;
-  justify-content: space-between;
-}
-
-.MainPetImage {
-  height: 180px;
-  width: 120px;
-  position: relative;
-  z-index: 100;
-  top: 10px;
-  left: 120px;
-  
-}
-
-.MainPetsList {
-  margin-bottom: 60px;
-  font-weight: 500;
-  color: #283B40;
-}
-
-.main_text {
-  width: 930px;
-  position: absolute;
-  text-align: center;
-  top: 140px;
-  left: 240px;
-  text-align: center;
-  padding-top: 28px;
-  font-size: 32px;
+.btnCall {
+    margin-top: 30px;
+    width: 300px;
 }
