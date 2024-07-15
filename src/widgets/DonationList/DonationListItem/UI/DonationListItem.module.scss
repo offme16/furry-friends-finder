@@ -57,13 +57,13 @@
     width: 100%;
 }
 .donationName {
-    font-size: calc(0.5em + 1vw);
+    font-size: calc(0.5em + 0.8vw);
     line-height: normal;
 }
 .donationCost, .donationCount {
-    margin: 0;
+    margin: 5px;
     color: #555;
-    font-size: calc(0.5em + 1vw);
+    font-size: calc(0.5em + 0.8vw);
     line-height: normal;
 }
 .donationLink {
@@ -77,8 +77,8 @@
     transition: background-color 0.3s;
 }
 .donate_btn{
-    width: calc(20px + 1vw);
-    height: calc(20px + 1vw);
+    width: calc(20px + 0.8vw);
+    height: calc(20px + 0.8vw);
     display: inline-flex;
     align-items: center;
     justify-content: center;
