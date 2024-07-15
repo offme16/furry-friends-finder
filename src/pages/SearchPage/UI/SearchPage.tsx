@@ -7,11 +7,14 @@ import { PetsData, getPets, getUniqueFilterValues } from "enteties/PetsRegistere
 import { useSelector } from "react-redux";
 import { PetsList } from "widgets/PetsList";
 import { debounce } from 'lodash';
+import Button from "shared/UI/Button/Button";
+import useSanitizeInput from "shared/lib/hooks/useSanitizeInput";
 
 const SearchPage = () => {
     const dispatch = useAppDispatch();
     const PetsInfo = useSelector(PetsData);
     const [inputValue, setInputValue] = useState<string>('');
+    const sanitizeInput = useSanitizeInput();
 
     const { result, page, limit, isLoading, refs, error } = PetsInfo;
 
@@ -29,7 +32,8 @@ const SearchPage = () => {
     }, [dispatch, page, filters]);
 
     const handleFilterChange = (filterName: string, value: string) => {
-        const updatedFilters = { ...filters, [filterName]: value };
+        const sanitizedValue = sanitizeInput(value);
+        const updatedFilters = { ...filters, [filterName]: sanitizedValue };
         setFilters(updatedFilters);
         dispatch(getPets({ page: 1, limit, filters: updatedFilters }));
     };
@@ -40,10 +44,24 @@ const SearchPage = () => {
         }, 500),
         [filters]
     );
-    
+
     const handleCityInputChange = (value: string) => {
-        setInputValue(value);
-        debouncedSearch(value);
+        const sanitizedValue = sanitizeInput(value);
+        setInputValue(sanitizedValue);
+        debouncedSearch(sanitizedValue);
+    };
+
+    const resetFilters = () => {
+        const initialFilters = {
+            city: '',
+            genderPet: '',
+            breedPet: '',
+            colorPet: '',
+            agePet: ''
+        };
+        setFilters(initialFilters);
+        setInputValue('');
+        dispatch(getPets({ page: 1, limit, filters: initialFilters }));
     };
 
     const genderItems = refs?.find(ref => ref.gender)?.gender?.map(gender => ({ label: gender, value: gender })) ?? [];
@@ -78,11 +96,17 @@ const SearchPage = () => {
                         selectedValue={filters.breedPet}
                         onChange={(value) => handleFilterChange('breedPet', value)}
                     />
+                    <Button onClick={resetFilters}>Сбросить все фильтры</Button>
                 </div>
                 <div className={cls.petsList}>
-                    {error ? <div className={cls.error}><p>К сожалению, по вашему запросу ничего не найдено.</p>
-                        <p>Попробуйте изменить параметры фильтра или воспользоваться другим поисковым запросом.</p>
-                        </div> : <PetsList result={result} page={page} limit={limit} isLoading={isLoading} />} 
+                    {error ? (
+                        <div className={cls.error}>
+                            <p>К сожалению, по вашему запросу ничего не найдено.</p>
+                            <p>Попробуйте изменить параметры фильтра или воспользоваться другим поисковым запросом.</p>
+                        </div>
+                    ) : (
+                        <PetsList result={result} page={page} limit={limit} isLoading={isLoading} />
+                    )}
                 </div>
             </div>
         </div>
