@@ -1,7 +1,6 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
 import cls from './PetPage.module.scss';
-import { getListPets } from 'enteties/PetsRegistered';
 import Button from 'shared/UI/Button/Button';
 import { NavLink } from 'react-router-dom';
 

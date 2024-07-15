@@ -12,9 +12,6 @@ import toNextArrow from "shared/assests/donationList/toNextArrow.svg";
 import DonationError from 'widgets/DonationError/UI/DonationError';
 import { SectionHeader } from 'shared/UI/SectionHeader';
 import { Pagination } from '@mui/material';
-import { Thanksgiving } from 'widgets/Thanksgiving';
-
-
 
 const DonationList = () => {
     const dispatch = useAppDispatch();
