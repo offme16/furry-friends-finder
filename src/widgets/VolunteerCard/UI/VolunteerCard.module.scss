@@ -41,3 +41,17 @@
 .ownerCity {
   color: #757575;
 }
+
+.dataPerson {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 10px 0;
+}
+
+.name {
+  font-size: 22px;
+  margin: 10px 0;
+  color: #757575;
+}

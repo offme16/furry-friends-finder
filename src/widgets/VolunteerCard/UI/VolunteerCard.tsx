@@ -31,8 +31,9 @@ const VolunteerCard: React.FC<VolunteerCardProps> = ({
           isOpen={modalInfoIsOpen}
           onClose={() => setModalinfoIsOpen(false)}
         >
-          <div>
-            {phoneNumber} {name}
+          <div className={cls.dataPerson}>
+            <div className={cls.phone}>{phoneNumber}</div>
+            <div className={cls.name}>{name}</div>
           </div>
         </ModalView>
       </div>
