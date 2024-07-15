@@ -1,61 +1,60 @@
-
 .PetPage {
-    padding: 120px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    width: 100%;
-    height: 100%;
-    background-color: #f0eaea;
+  padding: 120px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  background-color: #f0eaea;
 }
 
 h2 {
-    font-size: 30px;
-    color: #283C40;
-    line-height: 50px;
-    padding-top: 20px;
+  font-size: 30px;
+  color: #283c40;
+  line-height: 50px;
+  padding-top: 20px;
 }
 
 table {
-    width: 30%;
-    font-size: 22px;
-    color: #283C40;
-    line-height: 40px;
+  width: 30%;
+  font-size: 22px;
+  color: #283c40;
+  line-height: 40px;
 }
 
 .features {
-    font-size: 22px;
-    color: #283C40;
-    line-height: 40px;
-    li {
-        list-style-position: inside;
-        margin: 20px;
-    }
+  font-size: 22px;
+  color: #283c40;
+  line-height: 40px;
+  li {
+    list-style-position: inside;
+    margin: 20px;
+  }
 
-    li::marker {
-        color:  #F2968F;
-    }
+  li::marker {
+    color: #f2968f;
+  }
 }
 
 .description {
-    font-size: 22px;
-    color: #283C40;
-    line-height: 40px;
+  font-size: 22px;
+  color: #283c40;
+  line-height: 40px;
 }
 
 .btnBack {
-    width: 150px;
-    background-color: #f0eaea;
-    color: #F2968F;
-    transition: background-color 0.2s;
+  width: 150px;
+  background-color: #f0eaea;
+  color: #f2968f;
+  transition: background-color 0.2s;
 
-    &:hover {
-        background-color: #F2968F;
-        color: #f0eaea;
-    }
+  &:hover {
+    background-color: #f2968f;
+    color: #f0eaea;
+  }
 }
 
 .btnCall {
-    margin-top: 30px;
-    width: 300px;
+  margin-top: 30px;
+  width: 300px;
 }
