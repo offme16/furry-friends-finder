@@ -12,7 +12,7 @@ const PetListItem: React.FC<PetListItemProps> = ({ pet }) => {
         <div className = {cls.PetListItem}>
             <NavLink to={'../pet/'+pet.id} className={cls.PetsNavlink}>
                 <div key = {pet.id} className = {cls.PetsItem}>
-                        <img src = {pet.picturePet} alt = {`pets-${pet.id}`} className = {cls.PetsImage} />
+                        <img src = {pet.picturePet[0]} alt = {`pets-${pet.id}`} className = {cls.PetsImage} />
                         <div className={cls.PetsDiscription}>
                             <div className = {cls.PetsFact}>
                                 <p> <b>{pet.petName}</b> (<u>{pet.genderPet}</u>) </p>
