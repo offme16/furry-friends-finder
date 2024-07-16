@@ -27,7 +27,6 @@ const DonationList = () => {
   useEffect(() => {
     dispatch(getDonations(offset));
   }, [offset.page]);
-  console.log("!");
 
   const handleSetPage = (page: number) => {
     if (page > 0 && page) dispatch(DonationsFeedSliceActions.setPage(page));

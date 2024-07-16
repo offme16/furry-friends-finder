@@ -9,7 +9,8 @@
 }
 
 .donation_card_container{
-    height: 100%;
+    width: 100%;
+    min-height: 60vh;
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
     grid-template-rows: 1fr 1fr;
@@ -31,18 +32,13 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
-    min-height: 80vh;
+    // min-height: 80vh;
     width: 75%;
-    max-width: 1000px;
     margin-bottom: 40px;
     z-index: 100;
 }
 
-@media screen and (max-width: 1200px) {
-    .donation_list_container{
-        min-height: 60vh;
-    }
-}
+
 
 .placeholder{
     width: 100%;
