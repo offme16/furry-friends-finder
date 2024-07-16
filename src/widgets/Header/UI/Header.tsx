@@ -17,7 +17,7 @@ const Header = () => {
                 <span className={cls.burgerLine}></span>
             </div>
             <nav className={`${cls.navigate} ${menuOpen ? cls.open : ''}`}>
-                <NavLink to={'/'} onClick={() => setMenuOpen(false)}>Главная</NavLink>
+                <NavLink to={'/main'} onClick={() => setMenuOpen(false)}>Главная</NavLink>
                 <div className={cls.dot}></div>
                 <NavLink to={'/news'} onClick={() => setMenuOpen(false)}>Новости</NavLink>
                 <div className={cls.dot}></div>

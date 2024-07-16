@@ -2,7 +2,7 @@
   "name": "furry-friends-finder",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://offme16.github.io/furry-friends-finder/",
+  "homepage": "https://offme16.github.io/furry-friends-finder/main",
   "dependencies": {
     "@emotion/react": "^11.11.4",
     "@emotion/styled": "^11.11.5",
