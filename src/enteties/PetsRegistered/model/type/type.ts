@@ -18,7 +18,7 @@ export interface Pets {
     colorPet: string;
     features: Array<string>;
     description: string;
-    picturePet: string;
+    picturePet: Array<string>;
 }
 
 export interface Refs {
