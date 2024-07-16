@@ -86,6 +86,7 @@ const DonationList = () => {
         {loader}
         {donationItem}
         <Pagination
+          size = "large"
           count={4}
           page={offset.page}
           hidePrevButton

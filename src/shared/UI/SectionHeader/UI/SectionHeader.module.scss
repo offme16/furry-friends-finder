@@ -4,10 +4,10 @@
     margin-bottom: 10px;
     width: 70%;
     min-width: 350px;
-    // max-width: 1000px;
     position: relative;
     aspect-ratio: 3/1;
 }
+
 .img_dog{
     position: absolute;
     z-index: 10;
@@ -28,13 +28,13 @@
     display: flex;
     justify-self: center;
     align-items: center;
-    justify-content: center;
     position: relative;
     width: 80%;
     height: 40%;
-    min-height: 50px;
+    max-height: calc(100px + 3vw);
+    min-height: 60px;
     border-radius: 78px;
-    padding: 15px 0;
+    padding: 20px 0;
     top: 38%;
     background: #DEC1E9;
     box-shadow: 0px 0px 4px 0px #00000040;
@@ -45,11 +45,10 @@
     width: calc(50%);
     left: 27%;
     top: calc(15% - 5px);
-    // left: 33%;
     z-index: 99;
     word-break: keep-all;
     h1 {
-        font-size: calc(0.35em + 1.7vw);
+        font-size: calc(.7em + 1.7vw);
         text-align: center;
         color: #283C40;
         line-height: normal;
@@ -58,10 +57,21 @@
 
 .dog_char h2{
     position: relative;
-    font-size: calc(.35em + 1vw) ;
+    width: 75%;
+    left: 20%;
+    font-size: calc(.55em + 1.3vw) ;
     font-weight: normal;
     text-align: center;
     line-height: normal;
     padding: 0;
     z-index: 100;
+}
+
+@media screen and (max-width: 600px) {
+    .SectionHeader{
+        width: 100%;
+    }
+    .title {
+        top: calc(4%);
+    }
 }

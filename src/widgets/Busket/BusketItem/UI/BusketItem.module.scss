@@ -8,7 +8,7 @@
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     transition: transform 0.3s;
     width: 95%;
-    margin: 10px 10px;
+    margin: calc(2vw) 10px;
     padding: 10px;
 }
 
@@ -25,17 +25,20 @@
 .basketDetails {
     display: flex;
     flex-direction: column;
+    justify-content: space-evenly;
+    height: 100%;
     flex-grow: 1;
 }
 
 .basketName {
-    font-size: 1.25rem;
+    font-size: calc(0.5em + 0.8vw);
     margin-bottom: 8px;
     width: calc(100% - 20px);
 }
 
 .basketCost, .basketCount {
     margin: 4px 0;
+    font-size: calc(0.5em + 0.8vw);
     color: #555;
 }
 
@@ -46,8 +49,8 @@
 }
 
 .basketButton, .basketRemoveButton {
-    width: calc(20px + 1vw);
-    height: calc(20px + 1vw);
+    width: calc(20px + 0.8vw);
+    height: calc(20px + 0.8vw);
     display: inline-flex;
     align-items: center;
     justify-content: center;
@@ -61,14 +64,16 @@
 
 .remove_card{
     position: absolute;
+    top: 10%;
     right: 5px;
-    font-size: 200%;
+    font-size: calc(20px + 2vw);
     cursor: pointer;
 }
 
 .subTotalCost{
     position: absolute;
-    right: 20px;
-    bottom: 20px;
+    font-size: calc(0.5em + 0.8vw);
+    right: 5%;
+    bottom: 10%;
 }
 

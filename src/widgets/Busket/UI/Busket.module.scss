@@ -2,12 +2,17 @@
 
 .Busket{
     position: fixed;
-    width: 50px;
-    height: 50px;
+    display: grid;
+    width: calc(40px + 2vw);
+    height: calc(40px + 2vw);
     border-radius: 50%;
     margin: 10px;
     right: 0;
-    z-index: 1000;
+    z-index: 999;
+
+    img{
+        width: 100%;
+    }
 }
 .busket_bg{
     display: none;
@@ -32,7 +37,7 @@
     height: 100vh;
     margin: 0;
     transition: right 0.3s ease-in-out, width 0.3s ease-in-out;
-    z-index: 999;
+    z-index: 998;
 }
 @media screen and (max-width: 960px) {
     .busket_body{
@@ -59,14 +64,16 @@
     width: 100%;
     bottom: 0;
     text-align: justify;
-    font-size: 24px;
+    font-size: calc(0.5em + 1vw);
     padding: 20px;
     font-weight: lighter;
     border-top: 1px inset rgb(129, 127, 127) ;
     background-color: inherit;
 
     Button{
-        padding: 10px;
+        font-size: calc(0.5em + 1vw);
+        padding: 1vw;
+        
     }
 }
 
@@ -95,14 +102,14 @@
 .busket_count{
     display: flex;
     position: absolute;
-    top: 13px;
-    left: 21px;
+    align-self: end;
+    justify-self: end;
     justify-content: center;
     align-items: center;
     color: white;
-    font-size: 0.75em;
-    width: 14px;
-    height: 14px;
+    width: calc(15px + 1vw);
+    height: calc(15px + 1vw);
+    font-size: calc(0.75em + 1vw);
     background-color: #F2968F;
     border-radius: 50%;
     pointer-events: none;
