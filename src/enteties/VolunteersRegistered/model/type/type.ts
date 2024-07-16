@@ -7,4 +7,6 @@ export interface VolunteersRegisteredSchema {
 export interface Volunteers {
     id: number;
     name: string;
+    phone: string;
+    city: string;
 }

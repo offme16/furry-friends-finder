@@ -9,7 +9,7 @@ export interface PetsRegisteredSchema {
 
 export interface Pets {
     id: string;
-    owner_id: string;
+    ownerID: number;
     city: string;
     petName: string;
     genderPet: string;
