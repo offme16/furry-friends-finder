@@ -7,12 +7,24 @@
     width: 75%;
     max-width: 1000px;
     margin-bottom: 40px;
-    z-index: 100;
 }
 
 @media screen and (max-width: 1200px) {
-    .PetsList{
+    .PetsList {
         min-height: 60vh;
+    }
+}
+
+@media screen and (max-width: 800px) {
+    .PetsList {
+        width: 85%;
+    }
+}
+
+@media screen and (max-width: 600px) {
+    .PetsList {
+        width: 95%;
+        margin-bottom: 20px;
     }
 }
 
@@ -24,16 +36,20 @@
     height: 100%;
 }
 
-@media screen and (max-width: 800px) {
-    .PetsGrid{
+@media screen and (max-width: 1200px) {
+    .PetsGrid {
         grid-template-columns: repeat(3, 1fr);
-        column-gap: 10px;
-        row-gap: 10px;
+    }
+}
+
+@media screen and (max-width: 900px) {
+    .PetsGrid {
+        grid-template-columns: repeat(2, 1fr);
     }
 }
 
 @media screen and (max-width: 600px) {
-    .PetsGrid{
+    .PetsGrid {
         grid-template-columns: repeat(2, 1fr);
         column-gap: 10px;
         row-gap: 10px;
@@ -41,15 +57,14 @@
 }
 
 @media screen and (max-width: 400px) {
-    .PetsGrid{
+    .PetsGrid {
         grid-template-columns: repeat(1, 1fr);
         column-gap: 10px;
         row-gap: 10px;
     }
 }
 
-
-.spinner{
+.spinner {
     position: absolute;
     display: flex;
     width: 100%;
@@ -59,8 +74,7 @@
     top: 40%;
 }
 
-
-.loading{
+.loading {
     filter: blur(10px);
     pointer-events: none;
 }

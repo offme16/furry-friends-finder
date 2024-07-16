@@ -9,9 +9,9 @@ interface PetListItemProps {
 
 const PetListItem: React.FC<PetListItemProps> = ({ pet }) => {
     return (
-        <div className = {cls.PetListItem}>
+        <div className = {cls.PetListItem} key = {pet.id}>
             <NavLink to={'../pet/'+pet.id} className={cls.PetsNavlink}>
-                <div key = {pet.id} className = {cls.PetsItem}>
+                <div  className = {cls.PetsItem}>
                         <img src = {pet.picturePet[0]} alt = {`pets-${pet.id}`} className = {cls.PetsImage} />
                         <div className={cls.PetsDiscription}>
                             <div className = {cls.PetsFact}>

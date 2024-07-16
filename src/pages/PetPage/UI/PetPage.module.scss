@@ -27,10 +27,20 @@ h2 {
 }
 
 table {
-  width: 30%;
-  font-size: 22px;
+  width: 100%;
+  max-width: 500px;
+  font-size: 18px;
   color: #283c40;
-  line-height: 40px;
+  border-collapse: collapse;
+
+  td {
+    padding: 10px;
+    border: 1px solid #ddd;
+  }
+
+  th, td {
+    text-align: left;
+  }
 }
 
 .features {
