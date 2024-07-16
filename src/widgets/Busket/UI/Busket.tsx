@@ -7,16 +7,28 @@ import { Donations } from 'enteties/DonationFeed';
 import BusketEmpty from 'shared/assests/Busket/BusketEmpty.png'
 import busketIcon from 'shared/assests/Busket/busket.svg'
 import Button from 'shared/UI/Button/Button';
+import { ModalView } from 'shared/UI/ModalView/modalView';
+import { Thanksgiving } from 'shared/UI/Thanksgiving';
+import { DonationsFeedSliceActions } from 'enteties/DonationFeed';
+import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch';
 
 const Busket = () => {
+    const dispatch = useAppDispatch();
     const [isClicked, setIsClicked] = useState(false);
     const busket = useSelector(getBusketData); //получение данных из стора
-
+    const [modalInfoIsOpen, setModalinfoIsOpen] = useState(false)
 
     const handleClick = () => {
         setIsClicked(!isClicked);
     };
 
+    const handleDonateClick = () => {
+        if(busket?.length){
+            setModalinfoIsOpen(true)
+            dispatch(DonationsFeedSliceActions.dropBusket())
+            console.log(busket.length)
+        }
+    }
 
     const handleBackgroundClick = () => {
         setIsClicked(false);
@@ -46,9 +58,10 @@ const Busket = () => {
                 </div>
                 <div className={cls.result_cost}>
                     {`Итого:${busket?.map(busketItem => busketItem.cost * busketItem.count).reduce((x, y) => x + y, 0)}`} &#8381;
-                    <Button> Пожертвовать! </Button>
+                    <Button onClick={handleDonateClick}> Пожертвовать! </Button>
                 </div>
             </div>
+            <ModalView isOpen = {modalInfoIsOpen} onClose={() => {setModalinfoIsOpen(false)}}> <Thanksgiving /> </ModalView> 
         </div>)
 }
 export default Busket;

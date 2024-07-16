@@ -2,8 +2,9 @@
     display: grid;
     margin-top: 20px;
     margin-bottom: 10px;
-    width: 90%;
-    max-width: 1000px;
+    width: 70%;
+    min-width: 350px;
+    // max-width: 1000px;
     position: relative;
     aspect-ratio: 3/1;
 }
@@ -61,5 +62,6 @@
     font-weight: normal;
     text-align: center;
     line-height: normal;
+    padding: 0;
     z-index: 100;
 }

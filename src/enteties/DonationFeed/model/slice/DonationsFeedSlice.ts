@@ -64,7 +64,10 @@ export const DonationsFeedSlice = createSlice({
                 return donationItem     
             })
             state.busket = state.busket?.filter(busketItem => busketItem.id !== action.payload.id)
-        }
+        },
+        dropBusket: (state) => {
+            state.busket = [];
+        },
     },
     extraReducers: (builder) => {
         builder
