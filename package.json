@@ -2,6 +2,7 @@
   "name": "furry-friends-finder",
   "version": "0.1.0",
   "private": true,
+  "homepage": "https://offme16.github.io/furry-friends-finder/",
   "dependencies": {
     "@emotion/react": "^11.11.4",
     "@emotion/styled": "^11.11.5",
@@ -17,6 +18,7 @@
     "axios": "^1.6.7",
     "axios-retry": "^4.0.0",
     "clsx": "^2.1.0",
+    "gh-pages": "^6.1.1",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-redux": "^9.1.0",
@@ -31,7 +33,9 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build"
   },
   "eslintConfig": {
     "extends": [
