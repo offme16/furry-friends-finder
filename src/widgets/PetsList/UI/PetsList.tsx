@@ -21,7 +21,7 @@ const PetsList: FC<PetsRegisteredSchema> = ({result, page, limit, isLoading}) =>
                     {result.map((item) => (
                         <NavLink to={'../pet/'+item.id} className={cls.PetsNavlink}>
                             <div key = {item.id} className = {cls.PetsItem}>
-                                    <img src = {item.picturePet} alt = {`pets-${item.id}`} className = {cls.PetsImage} />
+                                    <img src = {item.picturePet[0]} alt = {`pets-${item.id}`} className = {cls.PetsImage} />
                                     <div className={cls.PetsDiscription}>
                                         <div>
                                             <p className = {cls.PetsFact}> <b>{item.petName}</b> (<u>{item.genderPet}</u>) </p>

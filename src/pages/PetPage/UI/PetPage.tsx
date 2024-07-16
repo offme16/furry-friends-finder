@@ -7,6 +7,7 @@ import { useAppDispatch } from "shared/lib/hooks/useAppDispatch";
 import { PetsData, getPet} from "enteties/PetsRegistered";
 import { VolunteerData, getVolunteers } from "enteties/VolunteersRegistered";
 import { VolunteerCard } from "widgets/VolunteerCard";
+import { SliderComponent } from "widgets/Slider";
 
 const PetPage = () => {
   const { id } = useParams<{ id: string }>();
@@ -36,7 +37,7 @@ const PetPage = () => {
         <>
           <div>
             <h2>{pet.petName} ({pet.city})</h2>
-            <img src={pet.picturePet} className={cls.image} alt="picturePet" />
+            <SliderComponent slides={pet.picturePet} />
           </div>
           <div>
             <h2>Основная информация</h2>
@@ -77,18 +78,18 @@ const PetPage = () => {
               ))}
             </ul>
           </div>
-          {volunteerData && volunteerData.length > 0 && (
-            <VolunteerCard volunteer={volunteerData[0]} />
-          )}
           <div>
             <h2>Описание</h2>
             <div className={cls.description}>{pet.description}</div>
           </div>
+          <div>
+            <h2>Контакт</h2>
+            {volunteerData && volunteerData.length > 0 && (
+            <VolunteerCard volunteer={volunteerData[0]} />
+          )}
+          </div>
         </>
       )}
-      <Button className={cls.btnCall} type="submit">
-        Связаться
-      </Button>
     </div>
   );
 };
