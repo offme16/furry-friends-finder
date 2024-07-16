@@ -67,6 +67,7 @@ export const DonationsFeedSlice = createSlice({
         },
         dropBusket: (state) => {
             state.busket = [];
+            state.result = state.result?.map( donation => {return {...donation,  count: 0} });
         },
     },
     extraReducers: (builder) => {

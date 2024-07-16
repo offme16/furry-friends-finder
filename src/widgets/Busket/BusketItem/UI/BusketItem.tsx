@@ -40,8 +40,8 @@ const BusketItem: React.FC<BusketItemProps> = ({ donation }) => {
                             +
                         </Button>
                     </div>
-                    <span onClick={handleRemoveBusketItem} className={cls.remove_card}>&#128465;</span>
                 </div>
+                <span onClick={handleRemoveBusketItem} className={cls.remove_card}>&#128465;</span>
             </div>
         </div>)
 }
