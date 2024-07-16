@@ -1,49 +1,44 @@
-import React from "react";
+import React, { useState } from "react";
 import cls from "./VolunteerCard.module.scss";
-import { useState } from "react";
-import { ModalView } from "../../../shared/UI/ModalView/modalView";
+import { ModalView } from "shared/UI/ModalView/modalView";
 
 interface VolunteerCardProps {
-  phoneNumber: string;
-  name: string;
-  city: string;
+  volunteer: {
+    phone: string;
+    name: string;
+    city: string;
+  };
 }
 
-const VolunteerCard: React.FC<VolunteerCardProps> = ({
-  phoneNumber,
-  name,
-  city,
-}) => {
-  const [modalInfoIsOpen, setModalinfoIsOpen] = useState(false);
+const VolunteerCard: React.FC<VolunteerCardProps> = ({ volunteer }) => {
+  const [modalInfoIsOpen, setModalInfoIsOpen] = useState(false);
 
   const getHiddenNumber = (phone: string): string => {
     return phone.replace(/(\+\d{4})\d{3}(\d{2})(\d{2})/, "$1-XXX-XX-XX");
   };
-  const hiddenNumber = getHiddenNumber(phoneNumber);
+
+  const hiddenNumber = getHiddenNumber(volunteer.phone);
 
   return (
     <div className={cls.volunteerCard}>
       <div className={cls.phoneNumber}>
-        <button className={cls.button} onClick={() => setModalinfoIsOpen(true)}>
+        <button className={cls.button} onClick={() => setModalInfoIsOpen(true)}>
           <p>Показать номер</p> {hiddenNumber}
         </button>
-        <ModalView
-          isOpen={modalInfoIsOpen}
-          onClose={() => setModalinfoIsOpen(false)}
-        >
+        <ModalView isOpen={modalInfoIsOpen} onClose={() => setModalInfoIsOpen(false)}>
           <div className={cls.dataPerson}>
-            <div className={cls.phone}>{phoneNumber}</div>
-            <div className={cls.name}>{name}</div>
+            <div className={cls.phone}>{volunteer.phone}</div>
+            <div className={cls.name}>{volunteer.name}</div>
           </div>
         </ModalView>
       </div>
       <div className={cls.nameAndCityOwner}>
-        <div className={cls.ownerCity}>Владелец:</div>
-        {name}
+        <div className={cls.ownerCity}>Волонтер:</div>
+        {volunteer.name}
       </div>
       <div className={cls.nameAndCityOwner}>
         <div className={cls.ownerCity}>Город:</div>
-        {city}
+        {volunteer.city}
       </div>
     </div>
   );

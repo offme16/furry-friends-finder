@@ -1,11 +1,17 @@
 .PetPage {
-  padding: 120px;
+  padding: 120px 10px;
   display: flex;
   flex-direction: column;
   justify-content: center;
-  width: 100%;
+  max-width: 1440px;
+  margin: auto;
   height: 100%;
   background-color: #f0eaea;
+
+  .image {
+    width: 400px;
+    height: 400px;
+  }
 }
 
 h2 {

@@ -22,7 +22,10 @@ export const PetsRegisteredSlice = createSlice({
         },
         setRefs: (state, action: PayloadAction<Refs[]>) => {
             state.refs = action.payload;
-        }
+        },
+        setPet: (state, action: PayloadAction<Pets[]>) => {
+            state.result = action.payload;
+        },
     },
     extraReducers: (builder) => {
         builder
