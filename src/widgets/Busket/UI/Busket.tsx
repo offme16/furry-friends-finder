@@ -26,7 +26,6 @@ const Busket = () => {
         if(busket?.length){
             setModalinfoIsOpen(true)
             dispatch(DonationsFeedSliceActions.dropBusket())
-            console.log(busket.length)
         }
     }
 
