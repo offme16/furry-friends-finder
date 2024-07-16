@@ -28,6 +28,10 @@
         display: flex;
         flex-direction: column;
         gap: 10px;
+
+        &Input {
+            width: -webkit-fill-available;
+        }
     }
 
     .petsList {

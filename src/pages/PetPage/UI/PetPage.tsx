@@ -43,34 +43,36 @@ const PetPage = () => {
           </div>
           <div>
             <h2>Основная информация</h2>
-            <table>
-              <tbody>
-                <tr>
-                  <td>Город:</td>
-                  <td>{pet.city}</td>
-                </tr>
-                <tr>
-                  <td>Кличка:</td>
-                  <td>{pet.petName}</td>
-                </tr>
-                <tr>
-                  <td>Пол:</td>
-                  <td>{pet.genderPet}</td>
-                </tr>
-                <tr>
-                  <td>Возраст:</td>
-                  <td>{pet.agePet}</td>
-                </tr>
-                <tr>
-                  <td>Порода:</td>
-                  <td>{pet.breedPet}</td>
-                </tr>
-                <tr>
-                  <td>Окрас:</td>
-                  <td>{pet.colorPet}</td>
-                </tr>
-              </tbody>
-            </table>
+            <div className={cls.tableContainer}>
+              <table>
+                <tbody>
+                  <tr>
+                    <td>Город:</td>
+                    <td>{pet.city}</td>
+                  </tr>
+                  <tr>
+                    <td>Кличка:</td>
+                    <td>{pet.petName}</td>
+                  </tr>
+                  <tr>
+                    <td>Пол:</td>
+                    <td>{pet.genderPet}</td>
+                  </tr>
+                  <tr>
+                    <td>Возраст:</td>
+                    <td>{pet.agePet}</td>
+                  </tr>
+                  <tr>
+                    <td>Порода:</td>
+                    <td>{pet.breedPet}</td>
+                  </tr>
+                  <tr>
+                    <td>Окрас:</td>
+                    <td>{pet.colorPet}</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
           </div>
           <div className={cls.features}>
             <h2>Особенности</h2>
@@ -87,8 +89,8 @@ const PetPage = () => {
           <div>
             <h2>Контакт</h2>
             {volunteerData && volunteerData.length > 0 && (
-            <VolunteerCard volunteer={volunteerData[0]} />
-          )}
+              <VolunteerCard volunteer={volunteerData[0]} />
+            )}
           </div>
         </>
       )}

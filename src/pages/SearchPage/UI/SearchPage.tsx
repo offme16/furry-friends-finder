@@ -76,6 +76,7 @@ const SearchPage = () => {
             <div className={cls.content}>
                 <div className={cls.filter}>
                     <Input
+                        className={cls.filterInput}
                         placeholder="Любой город"
                         onChange={handleCityInputChange}
                         value={inputValue}
