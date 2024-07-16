@@ -14,8 +14,10 @@ import { getPets, PetsData } from 'enteties/PetsRegistered';
 import { useEffect } from 'react';
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch';
 import { SectionHeader } from 'shared/UI/SectionHeader';
+import ScrollToTop from 'shared/lib/hooks/useScroll';
 
 const MainPage = () => {
+    ScrollToTop();
     const dispatch = useAppDispatch();
     const PetsInfo = useSelector(PetsData);
     const {result, page, limit, isLoading} = PetsInfo;

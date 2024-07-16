@@ -6,8 +6,10 @@ import { useEffect, useState } from "react";
 import Pagination from "shared/UI/Pagination/Pagination";
 import Loader from "shared/UI/Loader/Loader";
 import { NewsFeedSliceActions } from "enteties/NewsFeed/model/slice/NewsFeedSlice";
+import ScrollToTop from "shared/lib/hooks/useScroll";
 
 const NewsPage = () => {
+    ScrollToTop();
     const dispatch = useAppDispatch();
     const [randomNews, setRandomNews] = useState<News[]>([]);;
     const newsInfo = useSelector(getNewsData);

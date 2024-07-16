@@ -8,8 +8,10 @@ import { PetsData, getPet} from "enteties/PetsRegistered";
 import { VolunteerData, getVolunteers } from "enteties/VolunteersRegistered";
 import { VolunteerCard } from "widgets/VolunteerCard";
 import { SliderComponent } from "widgets/Slider";
+import ScrollToTop from "shared/lib/hooks/useScroll";
 
 const PetPage = () => {
+  ScrollToTop();
   const { id } = useParams<{ id: string }>();
   const pets = useSelector(PetsData);
   const dispatch = useAppDispatch();
