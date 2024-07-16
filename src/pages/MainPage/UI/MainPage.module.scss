@@ -103,13 +103,13 @@
   @extend .head;
   border-bottom: none;
   flex-direction: column;
+  margin-bottom: 50px;
 }
 
 .contactsTitle {
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-top: 50px;
   flex-direction: row;
   align-content: flex-start;
   flex-wrap: wrap;
@@ -284,6 +284,7 @@ a {
 @media (max-width: 1278px) {
   .head {
     padding: 0 20px;
+    height: 825px;
   }
 }
 
@@ -354,7 +355,7 @@ a {
 
 @media (max-width: 480px) {
   .title h1 {
-    font-size: 24px;
+    font-size: 32px;
   }
 
   .title h2 {

@@ -1,4 +1,3 @@
-import React from 'react';
 import Slider from 'react-slick';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
@@ -9,15 +8,14 @@ interface SliderProps {
 }
 
 const SliderComponent: React.FC<SliderProps> = ({ slides }) => {
-  const isSingleSlide = slides.length === 1;
-
+  
   const settings = {
-    dots: false,
-    infinite:  !isSingleSlide,
+    dots: true,
+    infinite: false,
     speed: 500,
     slidesToShow: 1,
     slidesToScroll: 1,
-    arrows: !isSingleSlide,
+    arrows: false,
   };
 
   return (
