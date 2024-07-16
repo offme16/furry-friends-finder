@@ -14,8 +14,10 @@ import { getPets, PetsData } from 'enteties/PetsRegistered';
 import { useEffect } from 'react';
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch';
 import { SectionHeader } from 'shared/UI/SectionHeader';
+import ScrollToTop from 'shared/lib/hooks/useScroll';
 
 const MainPage = () => {
+    ScrollToTop();
     const dispatch = useAppDispatch();
     const PetsInfo = useSelector(PetsData);
     const {result, page, limit, isLoading} = PetsInfo;
@@ -27,12 +29,13 @@ const MainPage = () => {
     return (
         <div className={cls.MainPage}>
             <section className={cls.head}>
-                <div className={cls.char}></div>
+                
                 <div className={cls.title}>
                     <h1>Cчастье ближе,<br /> чем вы думаете</h1>
                     <NavLink to={'./search'}><Button>Найти питомца!</Button></NavLink>
                 </div>
                 <div className={cls.bg}>
+                <div className={cls.char}></div>
                     <div className={cls.char_bg}></div>
                     <img className={cls.bg_img} src={dog} alt='dog' />
                 </div>
@@ -47,11 +50,8 @@ const MainPage = () => {
             
             <section className={cls.contacts}>
                 <div className={cls.contactsTitle}>
-                    <h1>Наши контакты</h1>
-                    <div className={cls.circleBlue}></div>
-                    <img className={cls.petImage} src={dog_2} alt="Dog" />
-                    <div className={cls.circlePurple}>Остались вопросы? Свяжитесь с нами
-                      любым удобным для вас способом или оставьте заявку.</div>
+                    <SectionHeader mainText={'Наши контакты'} subText={`Остались вопросы? Свяжитесь с нами
+                      любым удобным для вас способом или оставьте заявку`}/>
                 </div>
                 <div className={cls.containers}>
                     <div className={cls.title}>

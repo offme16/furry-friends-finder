@@ -9,8 +9,10 @@ import { PetsList } from "widgets/PetsList";
 import { debounce } from 'lodash';
 import Button from "shared/UI/Button/Button";
 import useSanitizeInput from "shared/lib/hooks/useSanitizeInput";
+import ScrollToTop from "shared/lib/hooks/useScroll";
 
 const SearchPage = () => {
+    ScrollToTop();
     const dispatch = useAppDispatch();
     const PetsInfo = useSelector(PetsData);
     const [inputValue, setInputValue] = useState<string>('');
