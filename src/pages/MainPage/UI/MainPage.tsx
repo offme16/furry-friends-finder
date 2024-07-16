@@ -8,12 +8,12 @@ import email from '../../../shared/assests/email.svg';
 import github from '../../../shared/assests/github.svg';
 import { NavLink } from 'react-router-dom';
 import { DonationList } from 'widgets/DonationList';
-import dog_petsList from "shared/assests/donationList/donationDog.svg"
 import { PetsList } from 'widgets/PetsList';
 import { useSelector } from 'react-redux';
 import { getPets, PetsData } from 'enteties/PetsRegistered';
 import { useEffect } from 'react';
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch';
+import { SectionHeader } from 'shared/UI/SectionHeader';
 
 const MainPage = () => {
     const dispatch = useAppDispatch();
@@ -37,25 +37,14 @@ const MainPage = () => {
                     <img className={cls.bg_img} src={dog} alt='dog' />
                 </div>
             </section>
-         <section className={cls.pets}>
-                <header>
-                    <div className={cls.title}>
-                        <h1>Наши питомцы</h1>
-                    </div>
-                    <div className={cls.img_dog_bg}></div>
-                    <img className={cls.img_dog} src={dog_petsList} alt="MainDog" />
-                    <div className={cls.dog_char}>
-                        <h2>
-                            Мы покажем Вам наших питомцев
-                        </h2>
-                    </div>
-                    <div className={cls.char_bg_orange}></div>
-                    <div className={cls.char_bg_cyan}></div>
-                    <div className={cls.char_bg_green}></div>
-                </header>                
-                <PetsList result={result} page={page} limit={limit} isLoading={isLoading}/>
+
+            <section className={cls.pets}>
+                    <SectionHeader mainText={'Наши питомцы'} subText={'Мы покажем Вам наших питомцев'}></SectionHeader>           
+                    <PetsList result={result} page={page} limit={limit} isLoading={isLoading}/>
             </section>
-         <DonationList />
+
+            <DonationList />
+            
             <section className={cls.contacts}>
                 <div className={cls.contactsTitle}>
                     <h1>Наши контакты</h1>
